@@ -1,0 +1,5 @@
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+export PATH="/home/red/.deno/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export LIBVA_DRIVER_NAME=iHD
+export VDPAU_DRIVER=va_gl
