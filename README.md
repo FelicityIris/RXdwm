@@ -84,7 +84,11 @@ Starting Services in Runit by symlinking
 sudo ln -s /etc/runit/sv/<service-name> /run/runit/service/
 ```
 
+- I use rEFInd.
+
 - For issues please DM me on revolt.chat ---> `@R.T.Redreovich`
+
+- [A good guide for Artix Linux users. Others may also refer.](https://gist.github.com/themagicalmammal/37276c97897d40598e975f5e563252a6)
 
 # Special Thanks to
 
