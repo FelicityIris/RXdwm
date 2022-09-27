@@ -20,7 +20,7 @@ Few Apps
 
 Workflow
 
-![Personal-DWM-and-desktop-Build](https://i.imgur.com/s5CPBwG.mp4)
+https://i.imgur.com/s5CPBwG.mp4
 
 # Wallpaper
 
