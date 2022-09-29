@@ -53,6 +53,10 @@ exit
 chsh -s /bin/zsh username
 ```
 
+- NeoVim Theme: [NvChad](https://nvchad.com/)
+
+- Emacs Theme: [DOOM Emacs](https://github.com/doomemacs/doomemacs)
+
 - Icon Theme: Candy Icons
 
 - Mouse Cursor Theme: Nordzy Cursors (Light)
