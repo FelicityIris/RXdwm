@@ -24,7 +24,7 @@ Few Apps
 
 Workflow
 
-https://i.imgur.com/s5CPBwG.mp4
+https://imgur.com/uF0KU10
 
 # Wallpaper
 
