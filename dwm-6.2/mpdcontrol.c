@@ -5,7 +5,8 @@
 
 #include <mpd/client.h>
 
-#define MPDHOST "localhost"
+//#define MPDHOST "localhost"
+#define MPDHOST "/home/red/.config/mpd/socket"
 #define MPDPORT 6600
 
 struct mpd_connection *get_conn(){
