@@ -59,7 +59,15 @@ fi
 
 setxkbmap us &
 
-# exec bspwm &
+# Pipewire
+exec pipewire &
+exec wireplumber &
+exec pipewire-pulse &
+
+# MPD
+exec mpd --no-daemon &
+
+# Recommended to keep these before execution of BSPWM or DWM.
 
 session=${1:-bspwm}
 
@@ -67,15 +75,4 @@ case $session in
 	    dwm           ) exec dwm;;
 	    # No known session, try to run it as command
 	    *                 ) exec $1;;
-esac &
-
-# Temporary Startup Wallpaper while the WM loads
-#xwallpaper --zoom ~/Documents/Artix-Wall2.png &
-
-# Pipewire
-exec pipewire &
-exec wireplumber &
-exec pipewire-pulse &
-
-# MPD
-exec mpd --no-daemon
+esac
