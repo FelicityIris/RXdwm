@@ -11,18 +11,18 @@ With Picom (Can cause issues like completely transparent windows sometimes with 
 
 ![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermPicom.png?raw=true)
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/main/Media/Screenshots/EditorsPicom.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/EditorsPicom.png?raw=true)
 
 Without Picom
 
 ![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermWOPicom.png?raw=true)
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/main/Media/Screenshots/EditorsWOPicom.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/EditorsWOPicom.png?raw=true)
 
 
 Few Apps
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/main/Media/Screenshots/Apps.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Apps.png?raw=true)
 
 
 Workflow
