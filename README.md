@@ -31,7 +31,7 @@ https://imgur.com/uF0KU10
 
 # Wallpaper
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolShip1.jpg?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolShip1.png?raw=true)
 
 # SLSTATUS
 
