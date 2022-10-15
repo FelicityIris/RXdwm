@@ -26,7 +26,7 @@ https://imgur.com/uF0KU10 (Will be updated soon. Mostly only to showcase Picom A
 
 # Wallpaper
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolShere.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolSphere.png?raw=true)
 
 # SLSTATUS
 
