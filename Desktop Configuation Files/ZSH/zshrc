@@ -128,10 +128,12 @@ alias startdwm="startx ~/.xinitrc dwm"
 alias startnvbspwm="startx ~/.xinitrc-nv bspwm"
 alias startnvdwm="startx ~/.xinitrc-nv dwm"
 alias tmatrix="tmatrix --mode=dense -s 17 -g 20,40 -f 0.1,0.8 -t \"Red Tsar Redreovich\""
+alias vivamlm="xsetroot -name \"Red @ Artix Linux [RUNIT] [DWMv6.2];This user supports the eternal science of Marxism-Leninism-Maoism, Principally Maoism. Long Live the Masses! Long Live the Revolution! Long Live the Revolutionary Communist Leaders! Combat bravely, the vicious Imperialist and Fascist Filth.\""
 alias vim="nvim"
 alias screenshot-scrot-xclip="bash ~/screenshot-scrot-xclip.sh"
 alias fullscreenshot-scrot="scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"
 alias ffscreenrecord="ffmpeg -f x11grab -video_size 1920x1080 -framerate 27 -i $DISPLAY -f alsa -i default -c:v libx264 -preset veryfast -c:a aac screen.mp4"
+alias showconkymon="conky --config=/home/red/.config/conky/conky.conf && conky --config=/home/red/.config/conky/conkykeybind.conf"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 

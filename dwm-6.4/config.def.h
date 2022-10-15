@@ -60,12 +60,14 @@ static const Rule rules[] = {
 	{ "davinci-resolve",  NULL,       NULL,       0,            1,             1,             1.0,        -1 },
 	{ "galculator",       NULL,       NULL,       0,            1,             1,             1.0,        -1 },
 	{ "thunar",           NULL,       NULL,       0,            1,             0,             1.0,        -1 },
+	{ "Zathura",          NULL,       NULL,       0,            1,             1,             1.0,        -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachdirection = 0;    /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
 
 #include "layouts.c"
@@ -94,8 +96,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_shade2, "-nf", col_shade3, "-sb", col_shade1, "-sf", col_shade4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade1, "-nf", col_shade3, "-sb", col_shade2, "-sf", col_shade4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *upvol[] = {"amixer", "-q", "set", "Master", "5%+", "unmute", NULL};
@@ -121,14 +122,14 @@ static const char *fullscreenshot_scrot[] ={"scrot", "/home/red/Pictures/Screens
 #include <X11/XF86keysym.h>
 #include "mpdcontrol.c"
 #include "movestack.c"
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-  { MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("st") },
+	{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
+	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -205,7 +206,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },

@@ -18,7 +18,7 @@ nm-applet --indicator &
 
 #Blutooth-Applet Daemon
 
-blueman-applet &
+#blueman-applet &
 
 # Notifications Daemon
 
@@ -30,6 +30,12 @@ xsetroot -cursor_name left_ptr &
 
 # Terminal
 st &
+st ncmpcpp &
+st btop &
+
+# Conky
+conky --config=/home/red/.config/conky/conky.conf &
+conky --config=/home/red/.config/conky/conkykeybind.conf &
 
 # Low Battery Notifier
 
@@ -37,4 +43,5 @@ sh ~/.config/bspwm/scripts/low_bat_notifier.sh &
 
 # Wallpaper and LockScreenUpdate
 #xwallpaper --zoom ~/Pictures/Wallpapers/SolMount.jpg
-xwallpaper --zoom ~/Pictures/Wallpapers/SolShip1.png
+#xwallpaper --zoom ~/Pictures/Wallpapers/SolShip1.png
+xwallpaper --zoom ~/Pictures/Wallpapers/SolSphere.png

@@ -7,31 +7,26 @@ Before Compiling, remember to check the config.def.h file for personalized issue
 
 # Desktop Previews
 
-With Picom (Can cause issues like completely transparent windows sometimes with client opacity patch, you may remove the patch if you prefer using picom.conf, I generally do not use my system with Picom so I did not bother)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Prev1.png?raw=true)
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermPicom.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Term.png?raw=true)
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/EditorsPicom.png?raw=true)
-
-Without Picom
-
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermWOPicom.png?raw=true)
-
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/EditorsWOPicom.png?raw=true)
-
-
-Few Apps
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Editors.png?raw=true)
 
 ![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Apps.png?raw=true)
+
+With Picom (Can cause issues like completely transparent windows sometimes with client opacity patch, you may remove the patch if you prefer using picom.conf, I do not use my system with Picom so I did not bother.)
+
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermPicom.png?raw=true)
 
 
 Workflow
 
-https://imgur.com/uF0KU10
+https://imgur.com/uF0KU10 (Will be updated soon. Mostly only to showcase Picom Animations.)
 
 # Wallpaper
 
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolShip1.png?raw=true)
+![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Wallpapers/SolShere.png?raw=true)
 
 # SLSTATUS
 
@@ -82,6 +77,8 @@ chsh -s /bin/zsh username
 - IDE: VSCodium.
 
 - Audio Visualizer: cava
+
+- Music Player: MPD and CMUS (Tip, use mpd-rich-presence-discord-git from AUR to get MPD as status on Discord.)
 
 - I use pipewire (additionally pipewire-pulse, wireplumber and related packages + lib32 packages).
 

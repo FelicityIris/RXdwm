@@ -388,17 +388,18 @@ colors:
     blue: '#57c7ff'
     magenta: '#ff69c1'
     cyan: '#98edfe'
-    white: '#f1f1f0'
+    #white: '#f1f1f0'
+    white:  '#ffffff'
 
   bright:
-     black: '#282a36'
-     red: '#ff5b55'
-     green: '#59f78d'
-     yellow: '#f2f89c'
-     blue: '#57c7ff'
-     magenta: '#ff69c1'
-     cyan: '#98edfe'
-     white: '#f1f1f0'
+    black: '#4a4c58'
+    red: '#ff5b55'
+    green: '#59f78d'
+    yellow: '#f2f89c'
+    blue: '#57c7ff'
+    magenta: '#ff69c1'
+    cyan: '#98edfe'
+    white: '#d0d0d0'
 
 
 
