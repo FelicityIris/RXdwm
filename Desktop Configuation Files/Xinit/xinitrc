@@ -57,12 +57,12 @@ fi
 setxkbmap us &
 
 # Pipewire
-exec pipewire &
-exec wireplumber &
-exec pipewire-pulse &
+#exec pipewire &
+#exec wireplumber &
+#exec pipewire-pulse &
 
 # MPD
-exec mpd --no-daemon &
+#exec mpd --no-daemon &
 
 session=${1:-bspwm}
 

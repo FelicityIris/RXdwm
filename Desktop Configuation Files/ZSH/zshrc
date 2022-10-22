@@ -133,7 +133,7 @@ alias vim="nvim"
 alias screenshot-scrot-xclip="bash ~/screenshot-scrot-xclip.sh"
 alias fullscreenshot-scrot="scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"
 alias ffscreenrecord="ffmpeg -f x11grab -video_size 1920x1080 -framerate 27 -i $DISPLAY -f alsa -i default -c:v libx264 -preset veryfast -c:a aac screen.mp4"
-alias showconkymon="conky --config=/home/red/.config/conky/conky.conf && conky --config=/home/red/.config/conky/conkykeybind.conf"
+alias showconkymon="conky --config=/home/red/.config/conky/conky.conf && conky --config=/home/red/.config/conky/conkykeybind.conf && conky --config=/home/red/.config/conky/conkympd.conf"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 

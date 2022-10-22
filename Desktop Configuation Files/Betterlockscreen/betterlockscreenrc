@@ -14,24 +14,26 @@ quiet=false
 # i3lockcolor_bin="i3lock-color" # Manually set command for i3lock-color
 
 # default theme
-loginbox=000000ff
-loginshadow=00000000
-locktext="Enter Password"
-font="Proxima Nova"
-ringcolor=55000099
-insidecolor=00000000
-separatorcolor=00000000
+loginbox=002b36
+loginshadow=ffffff
+locktext="Welcome! Enter Password."
+font="Liberation Mono"
+ringcolor=220000
+insidecolor=002b36
+separatorcolor=00ff00
 ringvercolor=00ff00
-insidevercolor=00000000
-ringwrongcolor=ffffffff
-insidewrongcolor=d23c3dff
+insidevercolor=002b36
+ringwrongcolor=ff0000
+insidewrongcolor=002b36
 timecolor=8ab7e8
 time_format="%H:%M:%S"
 greetercolor=8ab7e8
 layoutcolor=8ab7e8
-keyhlcolor=d23c3dff
-bshlcolor=d23c3dff
-verifcolor=ffffffff
-wrongcolor=d23c3dff
-modifcolor=d23c3dff
-bgcolor=000000ff
+keyhlcolor=00ff00
+bshlcolor=00ff00
+verifcolor=002b36
+wrongcolor=ff0000
+modifcolor=8ab7e8
+bgcolor=000000
+
+# #002b36

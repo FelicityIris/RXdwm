@@ -16,13 +16,13 @@ static const int topbar             = 1;        /* 0 means standard bar at botto
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
 
-#define ICONSIZE 16   /* icon size */
-#define ICONSPACING 5 /* space between icon and title */
+#define ICONSIZE 17   /* icon size */
+#define ICONSPACING 7 /* space between icon and title */
 
 static const double defaultopacity  = 1.0;
 
-static const char *fonts[]          = { "Liberation Mono:size=14" };
-static const char dmenufont[]       = "Liberation Mono:size=14";
+static const char *fonts[]          = { "Liberation Mono:size=11","FiraCode Nerd Font:size=12" };
+static const char dmenufont[]       = "Liberation Mono:size=10";
 
 static const char col_shade1[]         = "#8ab7e8";
 //static const char col_shade2[]         = "#070033";
@@ -61,6 +61,7 @@ static const Rule rules[] = {
 	{ "galculator",       NULL,       NULL,       0,            1,             1,             1.0,        -1 },
 	{ "thunar",           NULL,       NULL,       0,            1,             0,             1.0,        -1 },
 	{ "Zathura",          NULL,       NULL,       0,            1,             1,             1.0,        -1 },
+  { "st",               NULL,       NULL,       0,            1,             0,             1.0,        -1 },
 };
 
 /* layout(s) */

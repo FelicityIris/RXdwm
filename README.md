@@ -15,10 +15,6 @@ Before Compiling, remember to check the config.def.h file for personalized issue
 
 ![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/Apps.png?raw=true)
 
-With Picom (Can cause issues like completely transparent windows sometimes with client opacity patch, you may remove the patch if you prefer using picom.conf, I do not use my system with Picom so I did not bother.)
-
-![Personal-DWM-and-desktop-Build](https://github.com/Red1922/Personal-DWM-and-desktop-Build/blob/main/Media/Screenshots/TermPicom.png?raw=true)
-
 
 Workflow
 
