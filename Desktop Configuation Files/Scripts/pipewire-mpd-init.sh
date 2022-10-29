@@ -1,14 +1,14 @@
 # Pipewire
-killall pipewire
-killall wireplumber
-killall pipewire-pulse
+#killall pipewire
+#killall wireplumber
+#killall pipewire-pulse
 
 exec pipewire &disown
 exec wireplumber &disown
 exec pipewire-pulse &disown
 
 # MPD
-killall mpd
+#killall mpd
 
-exec mpd --no-daemon
+exec mpd --no-daemon &disown
 

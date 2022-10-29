@@ -1,0 +1,14 @@
+[Default Applications]
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/x-github-client=github-desktop.desktop
+x-scheme-handler/x-github-desktop-auth=github-desktop.desktop
+x-scheme-handler/x-github-desktop-dev-auth=github-desktop.desktop
+x-scheme-handler/discord-381948295830044683=discord-381948295830044683.desktop
+x-scheme-handler/discord-382303152327753739=discord-382303152327753739.desktop
+
+[Added Associations]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

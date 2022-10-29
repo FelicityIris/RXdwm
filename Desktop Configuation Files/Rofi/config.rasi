@@ -14,7 +14,7 @@ configuration {
     sidebar-mode:			false;
 }
 
-@import "~/.config/rofi/irradiated-solarized-cyan.rasi"
+@import "~/.config/rofi/gx-blue-irradiated.rasi"
 
 window {
     background-color: @background;

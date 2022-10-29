@@ -1,11 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-
-
-# Neofetch command autoruns on terminal startup. This has been added here to prevent issues with instant prompt.
-neofetch | lolcat
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -17,6 +12,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,27 +109,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias steamlite="steam -no-browser &disown &exit"
-#alias grubupdate="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias nf="neofetch | lolcat"
+#
+alias steamlite="steam -no-browser &disown"
+alias nf="neofetch"
+alias nfl="neofetch | lolcat -b"
 alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytopus="yt-dlp -x --audio-format opus"
 alias ytflac="yt-dlp -x --audio-format flac"
-alias saveram="pkill flameshot ; pkill Discord ; pkill element ; pkil steam"
+#alias saveram="pkill flameshot ; pkill Discord ; pkill element ; pkil steam"
 alias ls="exa --icons"
 alias rtclock="tty-clock -scB -C 6"
-alias startbspwm="startx ~/.xinitrc bspwm"
-alias startdwm="startx ~/.xinitrc dwm"
-alias startnvbspwm="startx ~/.xinitrc-nv bspwm"
-alias startnvdwm="startx ~/.xinitrc-nv dwm"
 alias tmatrix="tmatrix --mode=dense -s 17 -g 20,40 -f 0.1,0.8 -t \"Red Tsar Redreovich\""
-alias vivamlm="xsetroot -name \"Red @ Artix Linux [RUNIT] [DWMv6.2];This user supports the eternal science of Marxism-Leninism-Maoism, Principally Maoism. Long Live the Masses! Long Live the Revolution! Long Live the Revolutionary Communist Leaders! Combat bravely, the vicious Imperialist and Fascist Filth.\""
-alias vim="nvim"
-alias screenshot-scrot-xclip="bash ~/screenshot-scrot-xclip.sh"
 alias fullscreenshot-scrot="scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"
 alias ffscreenrecord="ffmpeg -f x11grab -video_size 1920x1080 -framerate 27 -i $DISPLAY -f alsa -i default -c:v libx264 -preset veryfast -c:a aac screen.mp4"
-alias showconkymon="conky --config=/home/red/.config/conky/conky.conf && conky --config=/home/red/.config/conky/conkykeybind.conf && conky --config=/home/red/.config/conky/conkympd.conf"
+alias showconkymon="conky --config=/home/redreovich/.config/conky/conkymin.conf && conky --config=/home/redreovich/.config/conky/conkykeybind.conf && conky --config=/home/redreovich/.config/conky/conkympd.conf"
+alias :wq="exit"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 

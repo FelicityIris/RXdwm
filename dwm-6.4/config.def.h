@@ -19,21 +19,28 @@ static const char statussep         = ';';      /* separator between statuses */
 #define ICONSIZE 17   /* icon size */
 #define ICONSPACING 7 /* space between icon and title */
 
-static const double defaultopacity  = 1.0;
-
 static const char *fonts[]          = { "Liberation Mono:size=11","FiraCode Nerd Font:size=12" };
 static const char dmenufont[]       = "Liberation Mono:size=10";
 
 static const char col_shade1[]         = "#8ab7e8";
-//static const char col_shade2[]         = "#070033";
-static const char col_shade2[]         = "#002025";
-//static const char col_shade3[]         = "#170d5e";
-static const char col_shade3[]         = "#003034";
-static const char col_shade4[]         = "#000025";
+
+// Solarized Irradiated
+
+//static const char col_shade2[]         = "#002025";
+//static const char col_shade3[]         = "#003034";
+
+// GX Blue Irradiated
+
+static const char col_shade2[]         = "#000012";
+static const char col_shade3[]         = "#000034";
+
+static const char col_shade4[]         = "#000077";
+
+
 static const char col_urgborder[]   = "#cd0000";
 static const char *colors[][3]      = {
 	/*               fg              bg          border   */
-	[SchemeNorm] = { col_shade1,     col_shade2,  col_shade2 },
+	[SchemeNorm] = { col_shade1,     col_shade2,  col_shade4 },
 	[SchemeSel]  = { col_shade1,     col_shade3,  col_shade1  },
 	[SchemeUrg]  = { col_urgborder,  col_shade2,  col_urgborder  },
 };
@@ -41,27 +48,28 @@ static const char *colors[][3]      = {
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 //static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-static const char *tags[] = { "А₁ : Info", "В₂ : Net", "Г₃ : Run₁", "Д₄ : Run₂", "Є₅ : Code₁", "Ꙃ₆ : Code₂", "З₇ : X₁", "И₈ : X₂", "Ѳ₉ : X₃"};
+static const char *tags[] = { "А₁  ", "В₂  ", "Г₃  ", "Д₄  ", "Є₅  ", "Ꙃ₆  ", "З₇  ", "И₈  ", "Ѳ₉  "};
+//static const char *tags[] = { "А₁ : Info", "В₂ : Net", "Г₃ : Run₁", "Д₄ : Run₂", "Є₅ : Code₁", "Ꙃ₆ : Code₂", "З₇ : X₁", "И₈ : X₂", "Ѳ₉ : X₃"};
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class              instance    title       tags mask     iscentered     isfloating     opacity     monitor */
-	{ "Gimp",             NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-	{ "Firefox",          NULL,       NULL,       0,            1,             0,             1.0,        -1 },
-	{ "librewolf",        NULL,       NULL,       0,            1,             0,             1.0,        -1 },
-	{ "Chromium",         NULL,       NULL,       0,            1,             0,             1.0,        -1 },
-	{ "zoom",             NULL,       NULL,       0,            0,             1,             1.0,        -1 },
-	{ "feh",              NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-	{ "xdman-Main",       NULL,       NULL,       0,            0,             1,             1.0,        -1 },
-	{ "mpv",              NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-	{ "davinci-resolve",  NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-	{ "galculator",       NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-	{ "thunar",           NULL,       NULL,       0,            1,             0,             1.0,        -1 },
-	{ "Zathura",          NULL,       NULL,       0,            1,             1,             1.0,        -1 },
-  { "st",               NULL,       NULL,       0,            1,             0,             1.0,        -1 },
+	/* class              instance    title       tags mask     iscentered     isfloating     monitor */
+	{ "Gimp",             NULL,       NULL,       0,            1,             1,             -1 },
+	{ "Firefox",          NULL,       NULL,       0,            1,             0,             -1 },
+	{ "librewolf",        NULL,       NULL,       0,            1,             0,             -1 },
+	{ "Chromium",         NULL,       NULL,       0,            1,             0,             -1 },
+	{ "zoom",             NULL,       NULL,       0,            0,             1,             -1 },
+	{ "feh",              NULL,       NULL,       0,            1,             1,             -1 },
+	{ "xdman-Main",       NULL,       NULL,       0,            0,             1,             -1 },
+	{ "mpv",              NULL,       NULL,       0,            1,             1,             -1 },
+	{ "davinci-resolve",  NULL,       NULL,       0,            1,             1,             -1 },
+	{ "Galculator",       NULL,       NULL,       0,            1,             1,             -1 },
+	{ "thunar",           NULL,       NULL,       0,            1,             0,             -1 },
+	{ "Zathura",          NULL,       NULL,       0,            1,             1,             -1 },
+	{ "st",               NULL,       NULL,       0,            1,             0,             -1 },
 };
 
 /* layout(s) */
@@ -98,13 +106,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade1, "-nf", col_shade3, "-sb", col_shade2, "-sf", col_shade4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
-static const char *upvol[] = {"amixer", "-q", "set", "Master", "5%+", "unmute", NULL};
+static const char *upvol[] = {"pamixer", "-ui", "5", NULL};
 
-static const char *downvol[] = {"amixer", "-q", "set", "Master", "5%-", "unmute", NULL};
+static const char *downvol[] = {"pamixer", "-ud", "5", NULL};
 
-static const char *mutevol[] = {"amixer", "-q", "set", "Master", "toggle-mute", NULL};
+static const char *mutevol[] = {"pamixer", "-t", NULL};
 
 static const char *playpause[] = {"playerctl", "play-pause", NULL};
 
@@ -118,7 +126,7 @@ static const char *brightdown[] = {"xbacklight", "-dec", "25%", NULL};
 
 static const char *lockscreen[] = {"betterlockscreen", "-l", "dimblur", NULL};
 
-static const char *fullscreenshot_scrot[] ={"scrot", "/home/red/Pictures/Screenshots/Screenshot-$(date +%F_%T).png", NULL};
+static const char *fullscreenshot_scrot[] ={"scrot", "/home/redreovich/Pictures/Screenshots/Screenshot-$(date +%F_%T).png", NULL};
 
 #include <X11/XF86keysym.h>
 #include "mpdcontrol.c"
@@ -128,7 +136,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("st") },
+	//{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -173,8 +181,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|ShiftMask,             XK_KP_Add, changeopacity,  {.f = +0.1}},
-	{ MODKEY|ShiftMask,        XK_KP_Subtract, changeopacity,  {.f = -0.1}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -198,11 +204,10 @@ static const Key keys[] = {
 	{0,                XF86XK_MonBrightnessUp, spawn,          {.v = brightup} },
 	{0,              XF86XK_MonBrightnessDown, spawn,          {.v = brightdown} },
 	{ MODKEY,                       XK_x,      spawn,          {.v = lockscreen} },
-  {ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
-  {0,                         XK_Print,      spawn,          SHCMD("sh /home/red/screenshot-scrot-xclip.sh") },
-  { MODKEY,                   XK_Print,      spawn,          {.v = fullscreenshot_scrot} },
-  //{ MODKEY,                   XK_Print,      spawn,          SHCMD("flameshot full") },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("sh /home/red/.config/rofi/powermenu.sh") },
+	{ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
+	{0,                         XK_Print,      spawn,          SHCMD("sh /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
+	{ MODKEY,                   XK_Print,      spawn,          {.v = fullscreenshot_scrot} },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("sh /home/redreovich/.config/rofi/powermenu.sh") },
 };
 
 /* button definitions */

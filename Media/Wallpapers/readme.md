@@ -1,4 +1,10 @@
+# Wallpapers
+
+You may find more wallpapers in my [other repo](https://github.com/Red1922/Wallpapers)
+
 # Credits
+
+# Solarized
 
 - https://twitter.com/themerdev/media for SolBow.jpg wallpaper.
 

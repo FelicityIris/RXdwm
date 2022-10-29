@@ -9,39 +9,33 @@ set recolor-keephue 'false'
 set recolor-reverse-video 'false'
 
 # Command line completion entries
-#set completion-fg '#c1a79b'
 set completion-fg '#8ab7e8'
-set completion-bg '#042C36'
+set completion-bg '#00022'
 
 # Command line completion group elements
-set completion-group-fg '#B0471B'
-set completion-group-bg '#042C36'
+set completion-group-fg '#8ab7e8'
+set completion-group-bg '#000022'
 
 # Current command line completion element
-set completion-highlight-fg '#042C36'
-#set completion-highlight-bg '#c1a79b'
+set completion-highlight-fg '#000022'
 set completion-highlight-bg '#8ab7e8'
 
 # Default foreground/background color
-set default-bg rgba(4,44,54,0.5)
+set default-bg rgba(0,0,34,0.5)
 
 # Input bar
-#set inputbar-fg '#c1a79b'
 set inputbar-fg '#8ab7e8'
-set inputbar-bg '#042C36'
+set inputbar-bg '#000022'
 
 # Notification
-#set notification-fg '#c1a79b'
 set notification-fg '#8ab7e8'
-set notification-bg '#042C36'
+set notification-bg '#000022'
 
 # Error notification
-#set notification-error-fg '#c1a79b'
 set notification-error-fg '#8ab7e8'
 set notification-error-bg '#5B5A57'
 
 # Warning notification
-#set notification-warning-fg '#c1a79b'
 set notification-warning-fg '#8ab7e8'
 set notification-warning-bg '#5B5A57'
 
@@ -54,30 +48,25 @@ set notification-warning-bg '#5B5A57'
 # set tabbar-focus-bg
 
 # Status bar
-#set statusbar-fg '#c1a79b'
 set statusbar-fg '#8ab7e8'
-set statusbar-bg '#042C36'
+set statusbar-bg '#000022'
 
 # Highlighting parts of the document (e.g. show search results)
-set highlight-color '#B0471B'
-set highlight-active-color '#B0471B'
+set highlight-color '#8ab7e8'
+set highlight-active-color '#8ab7e8'
 
 # Represent light/dark colors in recoloring mode
 set recolor-lightcolor rgba(0,0,0,0)
-#set recolor-darkcolor '#c1a79b'
 set recolor-darkcolor '#8ab7e8'
 
 # 'Loading...' text
-#set render-loading-fg '#c1a79b'
 set render-loading-fg '#8ab7e8'
-set render-loading-bg '#042C36'
+set render-loading-bg '#000022'
 
 # Index mode
-#set index-fg '#c1a79b'
 set index-fg '#8ab7e8'
-set index-bg '#042C36'
+set index-bg '#000022'
 
 # Selected element in index mode
-set index-active-fg '#042C36'
-#set index-active-bg '#c1a79b'
+set index-active-fg '#000022'
 set index-active-bg '#8ab7e8'
