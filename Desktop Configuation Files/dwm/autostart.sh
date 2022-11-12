@@ -32,4 +32,8 @@ st &
 sh ~/Scripts/low_bat_notifier.sh &
 
 # Wallpaper and LockScreenUpdate
-xwallpaper --zoom ~/Pictures/Wallpapers/4085047void.png
+xwallpaper --zoom ~/Pictures/Wallpapers/FV/Wave-1920x1080.png &
+
+# Screensaver
+xscreensaver --no-splash
+

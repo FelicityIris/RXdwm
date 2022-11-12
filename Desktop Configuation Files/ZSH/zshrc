@@ -110,22 +110,68 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# Apps and Programs
+
+# Steam Lite
 alias steamlite="steam -no-browser &disown"
+
+# Neofetch
 alias nf="neofetch"
 alias nfl="neofetch | lolcat -b"
+
+# yt-dlp
 alias ytmp3="yt-dlp -x --audio-format mp3"
 alias ytopus="yt-dlp -x --audio-format opus"
 alias ytflac="yt-dlp -x --audio-format flac"
-#alias saveram="pkill flameshot ; pkill Discord ; pkill element ; pkil steam"
-alias ls="exa --icons"
+
+# Save RAM
+alias saveram="pkill flameshot ; pkill Discord ; pkill element ; pkil steam"
+
+# Utilities
 alias rtclock="tty-clock -scB -C 6"
 alias tmatrix="tmatrix --mode=dense -s 17 -g 20,40 -f 0.1,0.8 -t \"Red Tsar Redreovich\""
+
 alias fullscreenshot-scrot="scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png"
+
 alias ffscreenrecord="ffmpeg -f x11grab -video_size 1920x1080 -framerate 27 -i $DISPLAY -f alsa -i default -c:v libx264 -preset veryfast -c:a aac screen.mp4"
+
+# Conky
 alias showconkymon="conky --config=/home/redreovich/.config/conky/conkymin.conf && conky --config=/home/redreovich/.config/conky/conkykeybind.conf && conky --config=/home/redreovich/.config/conky/conkympd.conf"
+
+# Exit
 alias :wq="exit"
+alias kys="exit"
+
+# Sessions
+
+# X11
+# # dwm
+alias startdwm="xinit dwm"
+# # KDE Plasma
+alias startkde="xinit kde"
+
+# Wayland
+# # River
+alias startriver="dbus-run-session river"
+# # dwl
+alias startdwl="dbus-run-session dwl"
+
+# Coreutils Rust Alternatives
+
+alias ls="exa --icons"
+
+eval "$(zoxide init zsh)"
+alias cd='z'
+
+alias cp="xcp"
+
+alias rm="rip"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# broot
+source /home/redreovich/.config/broot/launcher/bash/br

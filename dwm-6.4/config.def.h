@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 17;        /* gaps between windows */
+static const unsigned int gappx     = 20;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -19,7 +19,8 @@ static const char statussep         = ';';      /* separator between statuses */
 #define ICONSIZE 17   /* icon size */
 #define ICONSPACING 7 /* space between icon and title */
 
-static const char *fonts[]          = { "Liberation Mono:size=11","FiraCode Nerd Font:size=12" };
+static const char *fonts[]          = { "Liberation Mono:size=14","FiraCode Nerd Font:size=15" };
+
 static const char dmenufont[]       = "Liberation Mono:size=10";
 
 static const char col_shade1[]         = "#8ab7e8";
@@ -61,6 +62,7 @@ static const Rule rules[] = {
 	{ "Firefox",          NULL,       NULL,       0,            1,             0,             -1 },
 	{ "librewolf",        NULL,       NULL,       0,            1,             0,             -1 },
 	{ "Chromium",         NULL,       NULL,       0,            1,             0,             -1 },
+	{ "Discord",          NULL,       NULL,       0,            1,             0,             -1 },
 	{ "zoom",             NULL,       NULL,       0,            0,             1,             -1 },
 	{ "feh",              NULL,       NULL,       0,            1,             1,             -1 },
 	{ "xdman-Main",       NULL,       NULL,       0,            0,             1,             -1 },
@@ -139,6 +141,7 @@ static const Key keys[] = {
 	//{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
+  { MODKEY|ShiftMask,             XK_b,      toggleborder,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -203,11 +206,12 @@ static const Key keys[] = {
 	{0,                      XF86XK_AudioPrev, spawn,          {.v = playprev} },
 	{0,                XF86XK_MonBrightnessUp, spawn,          {.v = brightup} },
 	{0,              XF86XK_MonBrightnessDown, spawn,          {.v = brightdown} },
-	{ MODKEY,                       XK_x,      spawn,          {.v = lockscreen} },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lockscreen} },
+  { MODKEY,                       XK_x,      spawn,          SHCMD("sh /home/redreovich/Scripts/i3lock-config.sh") },
 	{ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
 	{0,                         XK_Print,      spawn,          SHCMD("sh /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
 	{ MODKEY,                   XK_Print,      spawn,          {.v = fullscreenshot_scrot} },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("sh /home/redreovich/.config/rofi/powermenu.sh") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("bash /home/redreovich/.config/rofi/powermenu.sh") },
 };
 
 /* button definitions */

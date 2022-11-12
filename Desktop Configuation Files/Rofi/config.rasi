@@ -4,14 +4,14 @@
  *******************************************************/
 
 configuration {
-    font:				"Proxima Nova 10";
-    show-icons:				true;
-    icon-theme:				"candy-icons";
-    display-drun:			"Apps";
+    font:				            "Liberation Sans Bold 10";
+    show-icons:				      true;
+    icon-theme:				      "Lyra-blue-dark";
+    display-drun:			      "Apps";
     drun-display-format:		"{name}";
-    scroll-method:			0;
-    disable-history:			false;
-    sidebar-mode:			false;
+    scroll-method:			    0;
+    disable-history:			  true;
+    sidebar-mode:			      false;
 }
 
 @import "~/.config/rofi/gx-blue-irradiated.rasi"
@@ -22,8 +22,8 @@ window {
     padding:          30;
 }
 listview {
-    lines:                          12;
-    columns:                        6;
+    lines:                          10;
+    columns:                        7;
 }
 mainbox {
     border:  0;
@@ -41,7 +41,7 @@ listview {
     fixed-height: 0;
     border:       8px 0px 0px ;
     border-color: @separatorcolor;
-    spacing:      8px ;
+    spacing:      10px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
 }
