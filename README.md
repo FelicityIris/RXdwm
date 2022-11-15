@@ -1,4 +1,7 @@
 # Personal-RTRXdwm-And-Desktop-Build
+
+![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Core/rtrxdwmcore.png?raw=true)
+
 This Repository contains my RTRXdwm build along with related Desktop Files.
 
 RTRXdwm - R. T. Redreovich's X dwm is a custom build of dwm. It contains tons of patches which you may require in a dynamic window manager. With some changes, you can easily use this.
