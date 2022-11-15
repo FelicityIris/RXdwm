@@ -86,7 +86,7 @@ chsh -s /bin/zsh username
 
 - Icon Theme: [Candy Icons](https://github.com/EliverLara/candy-icons)
 
-- Mouse Cursor Theme: LyraB Cursors (User) | Nordzy Cursors Light (Sudo)
+- Mouse Cursor Theme: [LyraB Cursors](https://store.kde.org/p/1524406) (User) | [Nordzy Cursors](https://github.com/alvatip/Nordzy-cursors) Light (Sudo)
 
 - GTK Theme: [ABYSS INK](https://www.pling.com/p/1324963)
 
