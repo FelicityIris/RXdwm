@@ -61,7 +61,7 @@ Refer my [main wallpaper repo](https://github.com/Red1922/Wallpapers) for more w
 
 - Terminal: st; "[neofetch](https://github.com/dylanaraps/neofetch) | [lolcat](https://github.com/busyloop/lolcat)" to get rainbow coloured neofetch. (I do not use Alacritty any longer. Dot file is deprecated for this setup.)
 
-- Shell: [ZSH];(https://www.zsh.org/) (Some of my dotfiles and scripts may have `#!/bin/zsh` as the shebang, so replace it with `#!/bin/sh` or `#!/bin/bash` to make them work in case it doesn't.)
+- Shell: [ZSH](https://www.zsh.org/) (Some of my dotfiles and scripts may have `#!/bin/zsh` as the shebang, so replace it with `#!/bin/sh` or `#!/bin/bash` to make them work in case it doesn't.)
 - ZSH Plugins: [ZSH-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions); [Fast-Syntax-Highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) via [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 Steps to switch shell (for convenience)
