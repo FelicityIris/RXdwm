@@ -1,11 +1,11 @@
-.TH DWM 1 dwm\-VERSION
+.TH RTRXDWM 1 RTRXdwm\-VERSION
 .SH NAME
-dwm \- dynamic window manager
+RTRXdwm \- R. T. Redreovich's X dynamic window manager
 .SH SYNOPSIS
-.B dwm
+.B RTRXdwm
 .RB [ \-v ]
 .SH DESCRIPTION
-dwm is a dynamic window manager for X. It manages windows in tiled, monocle
+RTRXdwm is a custom build of dwm. dwm is a dynamic window manager for X. It manages windows in tiled, monocle
 and floating layouts. Either layout can be applied dynamically, optimising the
 environment for the application in use and the task performed.
 .P
@@ -99,6 +99,12 @@ Sets monocle layout.
 .TP
 .B Mod1\-space
 Toggles between current and previous layout.
+.TP
+.B Mod1\-Control\-,
+Cycles backwards in layout list.
+.TP
+.B Mod1\-Control\-.
+Cycles forwards in layout list.
 .TP
 .B Mod1\-j
 Focus next window.

@@ -44,7 +44,7 @@ https://imgur.com/uF0KU10
 
 # Wallpaper
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Wallpapers/4085047void.png?raw=true)
+![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Wallpapers/SWARM-1920x1080.png?raw=true)
 
 Refer my [main wallpaper repo](https://github.com/Red1922/Wallpapers) for more wallpapers.
 

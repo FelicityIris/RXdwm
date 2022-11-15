@@ -1,9 +1,19 @@
 /* See LICENSE file for copyright and license details. */
 
+/* alt-tab configuration */
+static const unsigned int tabModKey 		= 0x40;	/* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
+static const unsigned int tabCycleKey 		= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
+static const unsigned int tabPosY 			= 1;	/* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
+static const unsigned int tabPosX 			= 1;	/* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxWTab 			= 600;	/* tab menu width */
+static const unsigned int maxHTab 			= 200;	/* tab menu height */
+
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 17;        /* gaps between windows */
+static const unsigned int gappx     = 20;        /* gaps between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
+static const int scalepreview       = 4;        /* tag preview scaling */
 
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -16,10 +26,12 @@ static const int topbar             = 1;        /* 0 means standard bar at botto
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
 
+static const int startontag         = 1;        /* 0 means no tag active on start */
+
 #define ICONSIZE 17   /* icon size */
 #define ICONSPACING 7 /* space between icon and title */
 
-static const char *fonts[]          = { "Liberation Mono:size=11","FiraCode Nerd Font:size=12" };
+static const char *fonts[]          = { "Liberation Mono:size=14","FiraCode Nerd Font:size=15" };
 
 static const char dmenufont[]       = "Liberation Mono:size=10";
 
@@ -40,10 +52,11 @@ static const char col_shade4[]         = "#000077";
 
 static const char col_urgborder[]   = "#cd0000";
 static const char *colors[][3]      = {
-	/*               fg              bg          border   */
-	[SchemeNorm] = { col_shade1,     col_shade2,  col_shade4 },
-	[SchemeSel]  = { col_shade1,     col_shade3,  col_shade1  },
-	[SchemeUrg]  = { col_urgborder,  col_shade2,  col_urgborder  },
+	/*                 fg              bg           border   */
+	[SchemeNorm]   = { col_shade1,     col_shade2,  col_shade4 },
+	[SchemeSel]    = { col_shade1,     col_shade3,  col_shade1  },
+	[SchemeUrg]    = { col_urgborder,  col_shade2,  col_urgborder  },
+  [SchemeTitle]  = { col_shade1,     col_shade2,  col_shade1  },
 };
 
 /* tagging */
@@ -52,6 +65,23 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "А₁  ", "В₂  ", "Г₃  ", "Д₄  ", "Є₅  ", "Ꙃ₆  ", "З₇  ", "И₈  ", "Ѳ₉  "};
 //static const char *tags[] = { "А₁ : Info", "В₂ : Net", "Г₃ : Run₁", "Д₄ : Run₂", "Є₅ : Code₁", "Ꙃ₆ : Code₂", "З₇ : X₁", "И₈ : X₂", "Ѳ₉ : X₃"};
 
+static const char *tagsel[][2] = {
+	{ "#8ab7e8", "#000034" },
+	{ "#79b7d7", "#000034" },
+	{ "#68b7c6", "#000034" },
+	{ "#57b7b5", "#000034" },
+	{ "#46b7a4", "#000034" },
+	{ "#35b793", "#000034" },
+	{ "#24b782", "#000034" },
+	{ "#13b771", "#000034" },
+	{ "#02b760", "#000034" },
+};
+
+static const unsigned int ulinepad	= 0;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
+static const unsigned int ulinevoffset	= 18;	/* how far above the bottom of the bar the line should appear */
+static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -59,12 +89,11 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title       tags mask     iscentered     isfloating     monitor */
 	{ "Gimp",             NULL,       NULL,       0,            1,             1,             -1 },
-	{ "Firefox",          NULL,       NULL,       2,            1,             0,             -1 },
-	{ "librewolf",        NULL,       NULL,       2,            1,             0,             -1 },
-	{ "Chromium",         NULL,       NULL,       2,            1,             0,             -1 },
-	{ "Vivaldi",          NULL,       NULL,       2,            1,             0,             -1 },
-	{ "Discord",          NULL,       NULL,       4,            1,             0,             -1 },
-	{ "zoom",             NULL,       NULL,       3,            0,             1,             -1 },
+	{ "Firefox",          NULL,       NULL,       0,            1,             0,             -1 },
+	{ "librewolf",        NULL,       NULL,       0,            1,             0,             -1 },
+	{ "Chromium",         NULL,       NULL,       0,            1,             0,             -1 },
+	{ "Discord",          NULL,       NULL,       0,            1,             0,             -1 },
+	{ "zoom",             NULL,       NULL,       0,            1,             1,             -1 },
 	{ "feh",              NULL,       NULL,       0,            1,             1,             -1 },
 	{ "xdman-Main",       NULL,       NULL,       0,            0,             1,             -1 },
 	{ "mpv",              NULL,       NULL,       0,            1,             1,             -1 },
@@ -81,6 +110,10 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachdirection = 0;    /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
+static const int ratiofullscreenborders = 1;
+
+/* mouse scroll resize */
+static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
 
 #include "layouts.c"
 #include "fibonacci.c"
@@ -90,10 +123,11 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "[@]",      spiral },
- 	{ "[\\]",     dwindle },
+ 	{ "[D]",      dwindle },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
-	{ "HHH",      grid },
+	{ "[G]",      grid },
+  { NULL,       NULL },
 };
 
 /* key definitions */
@@ -110,6 +144,8 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade1, "-nf", col_shade3, "-sb", col_shade2, "-sf", col_shade4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *layoutmenu_cmd = "/home/redreovich/.rtrxdwm/layoutmenu.sh";
+
 
 static const char *upvol[] = {"pamixer", "-ui", "5", NULL};
 
@@ -134,6 +170,7 @@ static const char *fullscreenshot_scrot[] ={"scrot", "/home/redreovich/Pictures/
 #include <X11/XF86keysym.h>
 #include "mpdcontrol.c"
 #include "movestack.c"
+#include "focusurgent.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenucmd } },
@@ -142,6 +179,7 @@ static const Key keys[] = {
 	//{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
+  { MODKEY|ShiftMask,             XK_b,      toggleborder,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -165,8 +203,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY|ControlMask,		        XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+  { MODKEY|ControlMask,           XK_f,      toggleratiofullscr,  {0} },
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
 	{ MODKEY,                       XK_Up,     moveresize,     {.v = "0x -25y 0w 0h" } },
 	{ MODKEY,                       XK_Right,  moveresize,     {.v = "25x 0y 0w 0h" } },
@@ -179,8 +220,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+  { MODKEY|ControlMask,           XK_u,      focusurgent,    {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  { Mod1Mask,             		    XK_Tab,    altTabStart,	   {0} },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -214,13 +257,23 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("bash /home/redreovich/.config/rofi/powermenu.sh") },
 };
 
+/* resizemousescroll direction argument list */
+static const int scrollargs[][2] = {
+	/* width change         height change */
+	{ +scrollsensetivity,	0 },
+	{ -scrollsensetivity,	0 },
+	{ 0, 				  	+scrollsensetivity },
+	{ 0, 					-scrollsensetivity },
+};
+
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	//{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkLtSymbol,          0,              Button3,        layoutmenu,     {0} },
+  { ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkExBarLeftStatus,   0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkExBarMiddle,       0,              Button2,        spawn,          {.v = termcmd } },
@@ -228,7 +281,11 @@ static const Button buttons[] = {
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
+	{ ClkClientWin,         MODKEY,         Button4,        resizemousescroll, {.v = &scrollargs[0]} },
+	{ ClkClientWin,         MODKEY,         Button5,        resizemousescroll, {.v = &scrollargs[1]} },
+	{ ClkClientWin,         MODKEY,         Button6,        resizemousescroll, {.v = &scrollargs[2]} },
+	{ ClkClientWin,         MODKEY,         Button7,        resizemousescroll, {.v = &scrollargs[3]} },
+  { ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
