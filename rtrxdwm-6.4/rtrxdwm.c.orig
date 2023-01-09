@@ -297,6 +297,7 @@ static void toggleextrabar(const Arg *arg);
 static void toggleborder(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void togglefullscr(const Arg *arg);
+static void toggleratiofullscr(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void freeicon(Client *c);
@@ -605,7 +606,7 @@ attachstack(Client *c)
 void
 buttonpress(XEvent *e)
 {
-	unsigned int i, x, click;
+	unsigned int i, x, click, occ = 0;
 	Arg arg = {0};
 	Client *c;
 	Monitor *m;
@@ -624,9 +625,14 @@ buttonpress(XEvent *e)
 				selmon->previewshow = 0;
 		}
 		i = x = 0;
-		do
+		for (c = m->clients; c; c = c->next)
+			occ |= c->tags == 255 ? 0 : c->tags;
+		do {
+			/* do not reserve space for vacant tags */
+			if (!(occ & 1 << i || m->tagset[m->seltags] & 1 << i))
+				continue;
 			x += TEXTW(tags[i]);
-		while (ev->x >= x && ++i < LENGTH(tags));
+		} while (ev->x >= x && ++i < LENGTH(tags));
 		if (i < LENGTH(tags)) {
 			click = ClkTagBar;
 			arg.ui = 1 << i;
@@ -762,9 +768,7 @@ clientmessage(XEvent *e)
 			updatesystrayicongeom(c, wa.width, wa.height);
 			XAddToSaveSet(dpy, c->win);
 			XSelectInput(dpy, c->win, StructureNotifyMask | PropertyChangeMask | ResizeRedirectMask);
-      XClassHint ch = {"dwmsystray", "dwmsystray"};
-      XSetClassHint(dpy, c->win, &ch);
-      XReparentWindow(dpy, c->win, systray->win, 0, 0);
+			XReparentWindow(dpy, c->win, systray->win, 0, 0);
 			/* use parents background color */
 			swa.background_pixel  = scheme[SchemeNorm][ColBg].pixel;
 			XChangeWindowAttributes(dpy, c->win, CWBackPixel, &swa);
@@ -1009,19 +1013,19 @@ drawbar(Monitor *m)
 
 	resizebarwin(m);
 	for (c = m->clients; c; c = c->next) {
-    occ |= c->tags;
+		occ |= c->tags == 255 ? 0 : c->tags;
 		if (c->isurgent)
 			urg |= c->tags;
 	}
 	x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
+		/* do not draw vacant tags */
+		if (!(occ & 1 << i || m->tagset[m->seltags] & 1 << i))
+		continue;
+
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, (m->tagset[m->seltags] & 1 << i ? tagscheme[i] : scheme[SchemeNorm]));
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
-		if (occ & 1 << i)
-			drw_rect(drw, x + boxs, boxs, boxw, boxw,
-				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-				urg & 1 << i);
 		if (ulineall || m->tagset[m->seltags] & 1 << i) /* if there are conflicts, just move these lines directly underneath both 'drw_setscheme' and 'drw_text' :) */
 			drw_rect(drw, x + ulinepad, bh - ulinestroke - ulinevoffset, w - (ulinepad * 2), ulinestroke, 1, 0);
 
@@ -1042,6 +1046,7 @@ drawbar(Monitor *m)
       else { /* center window title */
 				drw_text(drw, x, 0, w, bh, (w - TEXTW(m->sel->name)) / 2 + (m->sel->icon ? m->sel->icw + ICONSPACING : 0), m->sel->name, 0);
         if (m->sel->icon) drw_pic(drw, x + (w - TEXTW(m->sel->name)) / 2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
+			//if (m->sel->icon) drw_pic(drw, x + lrpad / 2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
       }
       if (m->sel->isfloating)
 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
@@ -1050,6 +1055,7 @@ drawbar(Monitor *m)
 			drw_rect(drw, x, 0, w, bh, 1, 1);
 		}
 	}
+	//drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 	drw_map(drw, m->barwin, 0, 0, m->ww - stw, bh);
 
 	if (m == selmon) { /* extra status is only drawn on selected monitor */
@@ -1130,7 +1136,9 @@ focus(Client *c)
 		detachstack(c);
 		attachstack(c);
 		grabbuttons(c, 1);
-	  XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+    if (!c->isfullscreen) {
+		  XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+    }
     setfocus(c);
 	} else {
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
@@ -1675,7 +1683,7 @@ movemouse(const Arg *arg)
 			handler[ev.type](&ev);
 			break;
 		case MotionNotify:
-			if ((ev.xmotion.time - lasttime) <= (1000 / 120))
+			if ((ev.xmotion.time - lasttime) <= (1000 / 60))
 				continue;
 			lasttime = ev.xmotion.time;
 
@@ -1921,7 +1929,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
 			c->w = wc.width += c->bw * 2;
 			c->h = wc.height += c->bw * 2;
 		}
-	}*/
+	} */
 
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
@@ -1970,7 +1978,7 @@ resizemouse(const Arg *arg)
 			handler[ev.type](&ev);
 			break;
 		case MotionNotify:
-			if ((ev.xmotion.time - lasttime) <= (1000 / 120))
+			if ((ev.xmotion.time - lasttime) <= (1000 / 60))
 				continue;
 			lasttime = ev.xmotion.time;
 
@@ -2292,12 +2300,51 @@ setfullscreen(Client *c, int fullscreen)
 	if (fullscreen && !c->isfullscreen) {
 		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
 			PropModeReplace, (unsigned char*)&netatom[NetWMFullscreen], 1);
-		c->isfullscreen = 1;
+		c->isfullscreen = fullscreen;
 		c->oldstate = c->isfloating;
-    c->oldbw = c->bw;
+		c->oldbw = c->bw;
+		c->bw = 0;
+		c->oldbw = c->bw;
 		c->bw = 0;
 		c->isfloating = 1;
-		resizeclient(c, c->mon->mx, c->mon->my, c->mon->mw, c->mon->mh);
+		int nx, ny, nw, nh, bw;
+		if (fullscreen == 1) {
+			nx = c->mon->mx;
+			ny = c->mon->my;
+			nw = c->mon->mw;
+			nh = c->mon->mh;
+			bw = 0;
+		} else if (fullscreen == 2) {
+			if ((nw = c->w * c->mon->mh / c->h) < c->mon->mw) {
+				nh = c->mon->mh;
+				nx = (c->mon->mw - nw) / 2;
+				if (!ratiofullscreenborders) {
+					ny = c->mon->my;
+					bw = 0;
+				} else {
+					ny = -nx;
+					bw = nx;
+					nx = 0;
+				}
+			} else {
+				nw = c->mon->mw;
+				nh = c->h * c->mon->mw / c->w;
+				ny = (c->mon->mh - nh) / 2;
+				if (!ratiofullscreenborders) {
+					nx = c->mon->mx;
+					bw = 0;
+				} else {
+					nx = -ny;
+					bw = ny;
+					ny = 0;
+				}
+			}
+			XSetWindowBorder(dpy, c->win, BlackPixel(dpy, screen));
+		} else {
+			printf("Invalid argument (%d) provided to setfullscreen", fullscreen);
+			return;
+		}
+		resizeclient(c, nx, ny, nw, nh);
 		XRaiseWindow(dpy, c->win);
 	} else if (!fullscreen && c->isfullscreen){
 		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
@@ -2310,6 +2357,7 @@ setfullscreen(Client *c, int fullscreen)
 		c->w = c->oldw;
 		c->h = c->oldh;
 		resizeclient(c, c->x, c->y, c->w, c->h);
+    XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
 		arrange(c->mon);
 	}
 }
@@ -2908,6 +2956,13 @@ togglefullscr(const Arg *arg)
 }
 
 void
+toggleratiofullscr(const Arg *arg)
+{
+  if(selmon->sel)
+    setfullscreen(selmon->sel, !selmon->sel->isfullscreen * 2);
+}
+
+void
 toggletag(const Arg *arg)
 {
 	unsigned int newtags;
@@ -2949,7 +3004,9 @@ unfocus(Client *c, int setfocus)
 	if (!c)
 		return;
 	grabbuttons(c, 0);
-  XSetWindowBorder(dpy, c->win, scheme[SchemeNorm][ColBorder].pixel);
+  if (!c->isfullscreen) {
+	  XSetWindowBorder(dpy, c->win, scheme[SchemeNorm][ColBorder].pixel);
+  }
   if (setfocus) {
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);

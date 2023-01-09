@@ -2,18 +2,18 @@
 
 /* alt-tab configuration */
 static const unsigned int tabModKey 		= 0x40;	/* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
-static const unsigned int tabCycleKey 		= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
+static const unsigned int tabCycleKey 	= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
 static const unsigned int tabPosY 			= 1;	/* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
 static const unsigned int tabPosX 			= 1;	/* tab position on X axis, 0 = left, 1 = center, 2 = right */
-static const unsigned int maxWTab 			= 600;	/* tab menu width */
-static const unsigned int maxHTab 			= 200;	/* tab menu height */
+static const unsigned int maxWTab 			= 400;	/* tab menu width */
+static const unsigned int maxHTab 			= 100;	/* tab menu height */
 
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 20;        /* gaps between windows */
-static const unsigned int snap      = 10;       /* snap pixel */
-static const int scalepreview       = 4;        /* tag preview scaling */
+static const unsigned int gappx     = 25;        /* gaps between windows */
+static const unsigned int snap      = 15;       /* snap pixel */
+static const int scalepreview       = 5;        /* tag preview scaling */
 
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -31,29 +31,47 @@ static const int startontag         = 1;        /* 0 means no tag active on star
 #define ICONSIZE 17   /* icon size */
 #define ICONSPACING 7 /* space between icon and title */
 
-static const char *fonts[]          = { "Liberation Mono:size=14","FiraCode Nerd Font:size=15" };
+// FiraCode - Original
+//static const char *fonts[]          = { "FiraCode Nerd Font:size=14" };
+//static const char dmenufont[]       = "FiraCode Nerd Font:size=14";
 
-static const char dmenufont[]       = "Liberation Mono:size=10";
+// GohuFont - Terminalish Look
+//static const char *fonts[]          = { "GohuFont Nerd Font:size=14" };
+//static const char dmenufont[]       = "GohuFont Nerd Font:size=14";
 
-static const char col_shade1[]         = "#8ab7e8";
+// Iosevka - Balanced & Modern Terminalish Look
+static const char *fonts[]          = { "Iosevka Nerd Font:size=14" };
+static const char dmenufont[]       = "Iosevka Nerd Font:size=14";
 
-// Solarized Irradiated
+// ## Solarized Irradiated ##
+//static const char col_shade1[]  = "#8ab7e8";
+//static const char col_shade2[]  = "#002025";
+//static const char col_shade3[]  = "#003034";
+//static const char col_shade4[]  = "#004046";
+//static const char col_shade5[]  = "#59f78d";
 
-//static const char col_shade2[]         = "#002025";
-//static const char col_shade3[]         = "#003034";
 
-// GX Blue Irradiated
+// ## GX Blue Irradiated ##
+//static const char col_shade1[]  = "#a0a0ff";
+//static const char col_shade2[]  = "#000012";
+//static const char col_shade3[]  = "#000034";
+//static const char col_shade4[]  = "#000077";
+//static const char col_shade5[]  = "#59f78d";
 
-static const char col_shade2[]         = "#000012";
-static const char col_shade3[]         = "#000034";
 
-static const char col_shade4[]         = "#000077";
+// Catppuccin Mocha
+//static const char col_shade1[]  = "#89b4fa";
+static const char col_shade1[]  = "#a0a0ff";
+static const char col_shade2[]  = "#11111b";
+static const char col_shade3[]  = "#181825";
+static const char col_shade4[]  = "#1e1e2e";
+static const char col_shade5[]  = "#a6e3a1";
 
 
 static const char col_urgborder[]   = "#cd0000";
 static const char *colors[][3]      = {
 	/*                 fg              bg           border   */
-	[SchemeNorm]   = { col_shade1,     col_shade2,  col_shade4 },
+	[SchemeNorm]   = { col_shade1,     col_shade2,  col_shade2 },
 	[SchemeSel]    = { col_shade1,     col_shade3,  col_shade1  },
 	[SchemeUrg]    = { col_urgborder,  col_shade2,  col_urgborder  },
   [SchemeTitle]  = { col_shade1,     col_shade2,  col_shade1  },
@@ -62,24 +80,42 @@ static const char *colors[][3]      = {
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 //static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-static const char *tags[] = { "А₁  ", "В₂  ", "Г₃  ", "Д₄  ", "Є₅  ", "Ꙃ₆  ", "З₇  ", "И₈  ", "Ѳ₉  "};
+//static const char *tags[] = { "А₁  ", "В₂  ", "Г₃  ", "Д₄  ", "Є₅  ", "Ꙃ₆  ", "З₇  ", "И₈  ", "Ѳ₉  "};
 //static const char *tags[] = { "А₁ : Info", "В₂ : Net", "Г₃ : Run₁", "Д₄ : Run₂", "Є₅ : Code₁", "Ꙃ₆ : Code₂", "З₇ : X₁", "И₈ : X₂", "Ѳ₉ : X₃"};
+//static const char *tags[] = { "λ", "α", "β", "γ", "δ", "ε", "ζ", "η", "θ"}; // Because iota can cope.
+static const char *tags[] = { "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"}; // Inshallah. Use `۰` for first tag if you prefer.
 
+// ## GX Blue Irradiated ##
+/*
 static const char *tagsel[][2] = {
-	{ "#8ab7e8", "#000034" },
-	{ "#79b7d7", "#000034" },
-	{ "#68b7c6", "#000034" },
-	{ "#57b7b5", "#000034" },
-	{ "#46b7a4", "#000034" },
-	{ "#35b793", "#000034" },
-	{ "#24b782", "#000034" },
-	{ "#13b771", "#000034" },
-	{ "#02b760", "#000034" },
+	{ "#faa61a", "#000012" },
+	{ "#59f78d", "#000012" },
+	{ "#ff5b55", "#000012" },
+	{ "#faa61a", "#000012" },
+	{ "#59f78d", "#000012" },
+	{ "#ff5b55", "#000012" },
+	{ "#faa61a", "#000012" },
+	{ "#59f78d", "#000012" },
+	{ "#ff5b55", "#000012" },
+};
+*/
+
+// ## Catppuccin Mocha ##
+static const char *tagsel[][2] = {
+	{ "#fab387", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#f38ba8", "#11111b" },
+	{ "#f9e2af", "#11111b" },
+	{ "#fab387", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#f38ba8", "#11111b" },
+	{ "#f9e2af", "#11111b" },
+	{ "#fab387", "#11111b" },
 };
 
-static const unsigned int ulinepad	= 0;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 18;	/* how far above the bottom of the bar the line should appear */
+static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
 static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
@@ -87,21 +123,39 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class              instance    title       tags mask     iscentered     isfloating     monitor */
-	{ "Gimp",             NULL,       NULL,       0,            1,             1,             -1 },
-	{ "Firefox",          NULL,       NULL,       0,            1,             0,             -1 },
-	{ "librewolf",        NULL,       NULL,       0,            1,             0,             -1 },
-	{ "Chromium",         NULL,       NULL,       0,            1,             0,             -1 },
-	{ "Discord",          NULL,       NULL,       0,            1,             0,             -1 },
-	{ "zoom",             NULL,       NULL,       0,            1,             1,             -1 },
-	{ "feh",              NULL,       NULL,       0,            1,             1,             -1 },
-	{ "xdman-Main",       NULL,       NULL,       0,            0,             1,             -1 },
-	{ "mpv",              NULL,       NULL,       0,            1,             1,             -1 },
-	{ "davinci-resolve",  NULL,       NULL,       0,            1,             1,             -1 },
-	{ "Galculator",       NULL,       NULL,       0,            1,             1,             -1 },
-	{ "thunar",           NULL,       NULL,       0,            1,             0,             -1 },
-	{ "Zathura",          NULL,       NULL,       0,            1,             1,             -1 },
-	{ "st",               NULL,       NULL,       0,            1,             0,             -1 },
+	/* class              instance    title                   tags mask     iscentered     isfloating     monitor */
+	{ "Gimp",             NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Firefox",          NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "librewolf",        NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "librewolf",        "Devtools", NULL,                   0,            1,             1,             -1 },
+	{ "librewolf",        "Browser",  NULL,                   0,            1,             1,             -1 },
+	{ "librewolf",        "Toolkit",  NULL,                   0,            1,             1,             -1 },
+	{ "Chromium",         NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "Discord",          NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "zoom",             NULL,       NULL,                   0,            1,             1,             -1 },
+//	{ "zoom",             NULL,       "Zoom Meeting",         0,            1,             0,             -1 },
+//	{ "zoom",             NULL,       "Zoom - Free Account",  0,            1,             0,             -1 }, // Doesn't work, figuring out.
+	{ "qTox",             NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "feh",              NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "xdman-Main",       NULL,       NULL,                   0,            0,             1,             -1 },
+	{ "mpv",              NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "davinci-resolve",  NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Galculator",       NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "thunar",           NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "Zathura",          NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Emacs",            NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "st",               NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "scratchpad",       NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "eva",              NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "btop",             NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "btm",              NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "ncmpcpp",          NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Pavucontrol",      NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "qalculate-qt",     NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Lxappearance",     NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "qt5ct",            NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Kvantum Manager",  NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Plank",            NULL,       NULL,                   0,            0,             1,             -1 },
 };
 
 /* layout(s) */
@@ -110,7 +164,6 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachdirection = 0;    /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
-static const int ratiofullscreenborders = 1;
 
 /* mouse scroll resize */
 static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
@@ -132,6 +185,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define LAUNCHKEY Mod4Mask|Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -142,7 +196,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade1, "-nf", col_shade3, "-sb", col_shade2, "-sf", col_shade4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade2, "-nf", col_shade1, "-sb", col_shade2, "-sf", col_shade5, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *layoutmenu_cmd = "/home/redreovich/.rtrxdwm/layoutmenu.sh";
 
@@ -165,7 +219,7 @@ static const char *brightdown[] = {"xbacklight", "-dec", "25%", NULL};
 
 static const char *lockscreen[] = {"betterlockscreen", "-l", "dimblur", NULL};
 
-static const char *fullscreenshot_scrot[] ={"scrot", "/home/redreovich/Pictures/Screenshots/Screenshot-$(date +%F_%T).png", NULL};
+//static const char *fullscreenshot_scrot[] ={"scrot", "/home/redreovich/Pictures/Screenshots/Screenshot-$(date +%F_%T).png", NULL};
 
 #include <X11/XF86keysym.h>
 #include "mpdcontrol.c"
@@ -176,7 +230,15 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	//{ MODKEY|Mod1Mask,              XK_1,      spawn,          SHCMD("alacritty") },
+	{ LAUNCHKEY,                    XK_Return, spawn,          SHCMD("st -g 175x25 -c scratchpad") },
+	{ LAUNCHKEY,                    XK_1,      spawn,          SHCMD("alacritty --class=scratchpad") },
+  { LAUNCHKEY,                    XK_2,      spawn,          SHCMD("nemo") },
+	{ LAUNCHKEY,                    XK_3,      spawn,          SHCMD("/home/redreovich/Application-Packages/LibreWolf/librewolf") },
+	{ LAUNCHKEY,                    XK_4,      spawn,          SHCMD("zathura") },
+	{ LAUNCHKEY,                    XK_5,      spawn,          SHCMD("st -g 175x25 -c eva -e eva -f 64") },
+	{ LAUNCHKEY,                    XK_6,      spawn,          SHCMD("st -g 125x35 -c btop -e btop") },
+	{ LAUNCHKEY,                    XK_7,      spawn,          SHCMD("st -g 125x35 -c btm -e btm") },
+	{ LAUNCHKEY,                    XK_8,      spawn,          SHCMD("st -g 125x35 -c ncmpcpp -e ncmpcpp --host=$HOME/.config/mpd/socket") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
   { MODKEY|ShiftMask,             XK_b,      toggleborder,   {0} },
@@ -207,7 +269,6 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
-  { MODKEY|ControlMask,           XK_f,      toggleratiofullscr,  {0} },
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
 	{ MODKEY,                       XK_Up,     moveresize,     {.v = "0x -25y 0w 0h" } },
 	{ MODKEY,                       XK_Right,  moveresize,     {.v = "25x 0y 0w 0h" } },
@@ -249,11 +310,10 @@ static const Key keys[] = {
 	{0,                      XF86XK_AudioPrev, spawn,          {.v = playprev} },
 	{0,                XF86XK_MonBrightnessUp, spawn,          {.v = brightup} },
 	{0,              XF86XK_MonBrightnessDown, spawn,          {.v = brightdown} },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lockscreen} },
-  { MODKEY,                       XK_x,      spawn,          SHCMD("sh /home/redreovich/Scripts/i3lock-config.sh") },
-	{ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
-	{0,                         XK_Print,      spawn,          SHCMD("sh /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
-	{ MODKEY,                   XK_Print,      spawn,          {.v = fullscreenshot_scrot} },
+	{ MODKEY,                       XK_x,      spawn,          {.v = lockscreen} },
+  {ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
+	{0,                         XK_Print,      spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
+	{ MODKEY,                   XK_Print,      spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-full.sh") },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("bash /home/redreovich/.config/rofi/powermenu.sh") },
 };
 
