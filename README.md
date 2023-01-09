@@ -84,9 +84,9 @@ chsh -s /bin/zsh username
 
 - Emacs Theme: [DOOM Emacs](https://github.com/doomemacs/doomemacs)
 
-- Icon Theme: [Candy Icons](https://github.com/EliverLara/candy-icons)
+- Icon Theme: [BeautyLine Icons](https://store.kde.org/p/1425426/) | [Candy Icons](https://github.com/EliverLara/candy-icons) (Former)
 
-- Mouse Cursor Theme: [LyraB Cursors](https://store.kde.org/p/1524406) (User) | [Nordzy Cursors](https://github.com/alvatip/Nordzy-cursors) Light (Sudo)
+- Mouse Cursor Theme: [LyraB Cursors](https://store.kde.org/p/1524406) | [Nordzy Cursors](https://github.com/alvatip/Nordzy-cursors (Former)
 
 - GTK Theme: [ABYSS INK](https://www.pling.com/p/1324963)
 
