@@ -13,7 +13,7 @@ focusurgent(const Arg *arg) {
 				const Arg a = {.ui = 1 << i};
 				view(&a);
 				focus(c);
-				//warp(c);
+				warp(c);
 			}
 		}
 	}

@@ -10,8 +10,8 @@ static const unsigned int maxHTab 			= 100;	/* tab menu height */
 
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 25;        /* gaps between windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 15;       /* snap pixel */
 static const int scalepreview       = 5;        /* tag preview scaling */
 
@@ -25,8 +25,6 @@ static const int showbar            = 1;        /* 0 means no standard bar */
 static const int topbar             = 1;        /* 0 means standard bar at bottom */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
-
-static const int startontag         = 1;        /* 0 means no tag active on start */
 
 #define ICONSIZE 17   /* icon size */
 #define ICONSPACING 7 /* space between icon and title */
@@ -100,6 +98,7 @@ static const char *tagsel[][2] = {
 };
 */
 
+/*
 // ## Catppuccin Mocha ##
 static const char *tagsel[][2] = {
 	{ "#fab387", "#11111b" },
@@ -112,11 +111,20 @@ static const char *tagsel[][2] = {
 	{ "#f9e2af", "#11111b" },
 	{ "#fab387", "#11111b" },
 };
+*/
 
-static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+// ## Catppuccin Mocha | Personalized - only Green Selection ##
+static const char *tagsel[][2] = {
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+	{ "#a6e3a1", "#11111b" },
+};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -125,12 +133,15 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title                   tags mask     iscentered     isfloating     monitor */
 	{ "Gimp",             NULL,       NULL,                   0,            1,             1,             -1 },
-	{ "Firefox",          NULL,       NULL,                   0,            1,             0,             -1 },
 	{ "librewolf",        NULL,       NULL,                   0,            1,             0,             -1 },
 	{ "librewolf",        "Devtools", NULL,                   0,            1,             1,             -1 },
 	{ "librewolf",        "Browser",  NULL,                   0,            1,             1,             -1 },
 	{ "librewolf",        "Toolkit",  NULL,                   0,            1,             1,             -1 },
-	{ "Chromium",         NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "Firefox",          NULL,       NULL,                   0,            1,             0,             -1 },
+	{ "Firefox",          "Devtools", NULL,                   0,            1,             1,             -1 },
+	{ "Firefox",          "Browser",  NULL,                   0,            1,             1,             -1 },
+	{ "Firefox",          "Toolkit",  NULL,                   0,            1,             1,             -1 },
+  { "Chromium",         NULL,       NULL,                   0,            1,             0,             -1 },
 	{ "Discord",          NULL,       NULL,                   0,            1,             0,             -1 },
 	{ "zoom",             NULL,       NULL,                   0,            1,             1,             -1 },
 //	{ "zoom",             NULL,       "Zoom Meeting",         0,            1,             0,             -1 },
@@ -197,7 +208,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade2, "-nf", col_shade1, "-sb", col_shade2, "-sf", col_shade5, NULL };
-static const char *termcmd[]  = { "st", NULL };
+//static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *layoutmenu_cmd = "/home/redreovich/.rtrxdwm/layoutmenu.sh";
 
 
@@ -217,7 +229,7 @@ static const char *brightup[] = {"xbacklight", "-inc", "25%", NULL};
 
 static const char *brightdown[] = {"xbacklight", "-dec", "25%", NULL};
 
-static const char *lockscreen[] = {"betterlockscreen", "-l", "dimblur", NULL};
+static const char *lockscreen[] = {"betterlockscreen", "-l", "blur", NULL};
 
 //static const char *fullscreenshot_scrot[] ={"scrot", "/home/redreovich/Pictures/Screenshots/Screenshot-$(date +%F_%T).png", NULL};
 
@@ -232,8 +244,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ LAUNCHKEY,                    XK_Return, spawn,          SHCMD("st -g 175x25 -c scratchpad") },
 	{ LAUNCHKEY,                    XK_1,      spawn,          SHCMD("alacritty --class=scratchpad") },
-  { LAUNCHKEY,                    XK_2,      spawn,          SHCMD("nemo") },
-	{ LAUNCHKEY,                    XK_3,      spawn,          SHCMD("/home/redreovich/Application-Packages/LibreWolf/librewolf") },
+  { LAUNCHKEY,                    XK_2,      spawn,          SHCMD("thunar") },
+	{ LAUNCHKEY,                    XK_3,      spawn,          SHCMD("firefox") },
 	{ LAUNCHKEY,                    XK_4,      spawn,          SHCMD("zathura") },
 	{ LAUNCHKEY,                    XK_5,      spawn,          SHCMD("st -g 175x25 -c eva -e eva -f 64") },
 	{ LAUNCHKEY,                    XK_6,      spawn,          SHCMD("st -g 125x35 -c btop -e btop") },
@@ -314,7 +326,7 @@ static const Key keys[] = {
   {ShiftMask,                 XK_Print,      spawn,          SHCMD("flameshot gui") },
 	{0,                         XK_Print,      spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
 	{ MODKEY,                   XK_Print,      spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-full.sh") },
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("bash /home/redreovich/.config/rofi/powermenu.sh") },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("key-power") },
 };
 
 /* resizemousescroll direction argument list */
