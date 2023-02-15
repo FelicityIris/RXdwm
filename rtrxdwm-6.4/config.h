@@ -10,7 +10,7 @@ static const unsigned int maxHTab 			= 100;	/* tab menu height */
 
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 15;       /* snap pixel */
 static const int scalepreview       = 5;        /* tag preview scaling */
@@ -63,6 +63,7 @@ static const char col_shade1[]  = "#a0a0ff";
 static const char col_shade2[]  = "#11111b";
 static const char col_shade3[]  = "#181825";
 static const char col_shade4[]  = "#1e1e2e";
+static const char col_shade6[]  = "#585ba0";
 static const char col_shade5[]  = "#a6e3a1";
 
 
@@ -70,7 +71,7 @@ static const char col_urgborder[]   = "#cd0000";
 static const char *colors[][3]      = {
 	/*                 fg              bg           border   */
 	[SchemeNorm]   = { col_shade1,     col_shade2,  col_shade2 },
-	[SchemeSel]    = { col_shade1,     col_shade3,  col_shade1  },
+	[SchemeSel]    = { col_shade1,     col_shade3,  col_shade6  },
 	[SchemeUrg]    = { col_urgborder,  col_shade2,  col_urgborder  },
   [SchemeTitle]  = { col_shade1,     col_shade2,  col_shade1  },
 };
@@ -150,6 +151,9 @@ static const Rule rules[] = {
 	{ "feh",              NULL,       NULL,                   0,            1,             1,             -1 },
 	{ "xdman-Main",       NULL,       NULL,                   0,            0,             1,             -1 },
 	{ "mpv",              NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "ffplay",           NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "io.github.celluloid_player.Celluloid",
+                        NULL,       NULL,                   0,            1,             1,             -1 },
 	{ "davinci-resolve",  NULL,       NULL,                   0,            1,             1,             -1 },
 	{ "Galculator",       NULL,       NULL,                   0,            1,             1,             -1 },
 	{ "thunar",           NULL,       NULL,                   0,            1,             0,             -1 },
@@ -170,7 +174,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -208,6 +212,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_shade2, "-nf", col_shade1, "-sb", col_shade2, "-sf", col_shade5, NULL };
+//static const char *dmenucmd[] = { "dmenu-run", NULL };
+//static const char *dmenudruncmd[] = { "j4-dmenu-desktop", NULL };
+static const char *dmenudruncmd[] = { "j4dmrun", NULL};
+
 //static const char *termcmd[]  = { "tabbed", "-r", "2", "st", "-w", "''", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *layoutmenu_cmd = "/home/redreovich/.rtrxdwm/layoutmenu.sh";
@@ -239,7 +247,8 @@ static const char *lockscreen[] = {"betterlockscreen", "-l", "blur", NULL};
 #include "focusurgent.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenucmd } },
+	{ LAUNCHKEY,                    XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = dmenudruncmd } },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("rofi -show drun") },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ LAUNCHKEY,                    XK_Return, spawn,          SHCMD("st -g 175x25 -c scratchpad") },
