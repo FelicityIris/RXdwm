@@ -2,20 +2,14 @@
 
 ![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Core/rtrxdwmcore.png?raw=true)
 
-(Yes I know, very ~~Shit~~ Superb Logo)
-
 This Repository contains my RTRXdwm build along with related Desktop Files.
 
-RTRXdwm - R. T. Redreovich's X dwm is a custom build of dwm. It contains tons of patches which you may require in a dynamic window manager. With some changes, you can easily use this.
+RTRXdwm - RT Redreovič's X dynamic window manager is a custom build of dwm. It contains tons of patches which you may require in a dynamic window manager. With some changes, you can easily use this.
 
 Why did I rename it? It is pretty much a whole package you would need, and if supplemented with my configuration, really you have an entire Desktop Suite. Plus the Name looked cooler. B)
 
 # Things to do
 
-- Fix bug where Bottom bar flies upwards when using Picom-pijulius.
-- Understand and rectify the Bottom bar.
-- Patch Barpadding and status2d into the Bottom bar.
-- Patch Fancybar? (idk I will think about it)
 - Fix layoutmenu (currently the layout pops up but the indexing is broken and if you click on any layout, it simply doesn't run, though you can probably just use the hotkeys or layout cycle, do you even need this? might as well use the menu for something else...)
 
 # Custom Kernel
@@ -28,7 +22,7 @@ For installing my custom kernel (Linux6.0-Xanmod Stable)
 
 # Attention
 
-Before Compiling, remember to check the config.def.h file for personalized issues. As this build was created solely to suit my own needs and in accordance to my system. Addresses and Program Commands may not resonate with your system.
+Before Compiling, remember to check the \*.h files for personalized issues. As this build was created solely to suit my own needs and in accordance to my system. Addresses and Program Commands may not resonate with your system.
 
 - Please note that only the patches inside the rtrxdwm-6.4/Patched folder are the ones that have been patched into my built. Any .diff or .patch in the build folder are just there for future patching and are currently in the process of being patched in. If you have already patched it or know how to patch it correctly without issues, do notify me.
 
