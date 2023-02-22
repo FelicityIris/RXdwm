@@ -89,7 +89,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", no
 static const char *dmenudruncmd[] = { "j4dmrun", NULL};
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 static const char *upvol[] = {"pamixer", "-ui", "5", NULL};

@@ -1,5 +1,4 @@
-static const Key keys[] = {
-	/* modifier                     key                       function        argument */
+static const Key keys[] = { /* modifier                     key                       function        argument */
 	{ LAUNCHKEY,                    XK_p,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,                     spawn,          {.v = dmenudruncmd } },
 	{ MODKEY,                       XK_p,                     spawn,          SHCMD("rofi -show drun") },
@@ -13,6 +12,7 @@ static const Key keys[] = {
 	{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("alacritty msg create-window --class btop -t BTOP++ -e btop") },
 	{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("alacritty msg create-window --class btm -t Bottom -e btm") },
 	{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("alacritty msg create-window --class ncmpcpp -t NCMPCPP -e ncmpcpp") },
+	{ LAUNCHKEY,                    XK_9,                     spawn,          SHCMD("alacritty && notify-send 'Alacritty socket created.'") },
 	{ MODKEY,                       XK_b,                     togglebar,      {0} },
 	{ MODKEY,                       XK_b,                     toggleextrabar, {0} },
   { MODKEY|ShiftMask,             XK_b,                     toggleborder,   {0} },
@@ -84,9 +84,9 @@ static const Key keys[] = {
 	{0,                             XF86XK_MonBrightnessDown, spawn,          {.v = brightdown} },
 	{ MODKEY,                       XK_x,                     spawn,          {.v = lockscreen} },
   {ShiftMask,                     XK_Print,                 spawn,          SHCMD("flameshot gui") },
-	{0,                             XK_Print,                 spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-xclip.sh") },
-	{ MODKEY,                       XK_Print,                 spawn,          SHCMD("bash /home/redreovich/Scripts/screenshot-scrot-full.sh") },
-	{ MODKEY|ShiftMask,             XK_e,                     spawn,          SHCMD("key-power") },
+	{0,                             XK_Print,                 spawn,          SHCMD("screenshot-scrot-xclip.sh") },
+	{ MODKEY,                       XK_Print,                 spawn,          SHCMD("screenshot-scrot-full.sh") },
+	{ MODKEY|ShiftMask,             XK_e,                     spawn,          SHCMD("dmenu-power") },
 	{ LAUNCHKEY,                    XK_space,                 spawn,          SHCMD("bash switch") },
 	{ LAUNCHKEY,                    XK_c,                     spawn,          SHCMD("clipmenu -i") },
 	{ LAUNCHKEY,                    XK_x,                     spawn,          SHCMD("mpdmenu -l :: -b") },

@@ -818,13 +818,25 @@ clientmessage(XEvent *e)
 			setfullscreen(c, (cme->data.l[0] == 1 /* _NET_WM_STATE_ADD    */
 				|| (cme->data.l[0] == 2 /* _NET_WM_STATE_TOGGLE */ && !c->isfullscreen)));
 	} else if (cme->message_type == netatom[NetActiveWindow]) {
-		for (i = 0; i < LENGTH(tags) && !((1 << i) & c->tags); i++);
-		if (i < LENGTH(tags)) {
-			const Arg a = {.ui = 1 << i};
-			selmon = c->mon;
-			view(&a);
-			focus(c);
-			restack(selmon);
+      if (c->issteam) {
+        if (c->tags & c->mon->tagset[c->mon->seltags])
+            return;
+        seturgent(c, 1);
+      } else if (c->tags & c->mon->tagset[c->mon->seltags]) {
+          focus(c);
+          warp(c);
+      } else {
+		      for (i = 0; i < LENGTH(tags) && !((1 << i) & c->tags); i++);
+		      if (i < LENGTH(tags)) {
+            if (c != selmon->sel)
+              unfocus(selmon->sel, 0);
+			      //const Arg a = {.ui = 1 << i};
+			      selmon = c->mon;
+            if (((1 << i) & TAGMASK) != selmon->tagset[selmon->seltags])
+			        view(&((Arg) { .ui = 1 << i }));
+			      focus(c);
+			      restack(selmon);
+          }
 		}
 	}
 }
@@ -3559,10 +3571,10 @@ updatewmhints(Client *c)
 		if (c == selmon->sel && wmh->flags & XUrgencyHint) {
 			wmh->flags &= ~XUrgencyHint;
 			XSetWMHints(dpy, c->win, wmh);
-		} else {
-			c->isurgent = (wmh->flags & XUrgencyHint) ? 1 : 0;
-			if (c->isurgent)
-				XSetWindowBorder(dpy, c->win, scheme[SchemeUrg][ColBorder].pixel);
+		} else if (!c->issteam) {
+			  c->isurgent = (wmh->flags & XUrgencyHint) ? 1 : 0;
+			  if (c->isurgent)
+				  XSetWindowBorder(dpy, c->win, scheme[SchemeUrg][ColBorder].pixel);
 		}
 		if (wmh->flags & InputHint)
 			c->neverfocus = !wmh->input;
