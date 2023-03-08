@@ -32,16 +32,18 @@ static const char *fonts[]    = { font };
 
 static char normfgcolor[]     = "#a0a0ff";
 static char normbgcolor[]     = "#11111b";
-static char selbordercolor[]  = "#585ba0";
+//static char selbordercolor[]  = "#585ba0";
+static char selbordercolor[]  = "#a6e3a1";
 static char selfgcolor[]      = "#a6e3a1";
 
 static char urgentcolor[]     = "#f38ba8";
 static char *colors[][3]      = {
-	/*                 fg           bg            border   */
-	[SchemeNorm]   = { normfgcolor, normbgcolor,  normbgcolor },
-	[SchemeSel]    = { selfgcolor,  normbgcolor,  selbordercolor },
-	[SchemeUrg]    = { urgentcolor, normbgcolor,  urgentcolor },
-  [SchemeTitle]  = { selfgcolor,  normbgcolor,  normbgcolor },
+	/*                  fg           bg            border   */
+	[SchemeNorm]    = { normfgcolor, normbgcolor,  normbgcolor },
+	[SchemeSel]     = { selfgcolor,  normbgcolor,  selbordercolor },
+	[SchemeUrg]     = { urgentcolor, normbgcolor,  urgentcolor },
+  [SchemeTitle]   = { selfgcolor,  normbgcolor,  normbgcolor },
+	[SchemeTab]     = { normfgcolor, normbgcolor,  selbordercolor },
 };
 
 static const char *tags[] = { "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"};
@@ -83,24 +85,6 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-
-/* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", normbgcolor, "-sf", selfgcolor, NULL };
-static const char *dmenudruncmd[] = { "j4dmrun", NULL};
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-
-static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
-static const char *layoutmenu_cmd = "layoutmenu.sh";
-
-static const char *upvol[] = {"pamixer", "-ui", "5", NULL};
-static const char *downvol[] = {"pamixer", "-ud", "5", NULL};
-static const char *mutevol[] = {"pamixer", "-t", NULL};
-static const char *playpause[] = {"playerctl", "play-pause", NULL};
-static const char *playnext[] = {"playerctl", "next", NULL};
-static const char *playprev[] = {"playerctl", "previous", NULL};
-static const char *brightup[] = {"xbacklight", "-inc", "25%", NULL};
-static const char *brightdown[] = {"xbacklight", "-dec", "25%", NULL};
-static const char *lockscreen[] = {"betterlockscreen", "-l", "blur", NULL};
 
 #include "xresources.h"
 

@@ -1,17 +1,37 @@
+/* commands */
+static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", normbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenudruncmd[] = { "j4dmrun", NULL};
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+
+//static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
+static const char *termcmd[]  = { "alacritty", "msg", "create-window", "||", "alacritty", NULL };
+static const char *layoutmenu_cmd = "layoutmenu.sh";
+
+static const char *upvol[] = {"pamixer", "-ui", "5", NULL};
+static const char *downvol[] = {"pamixer", "-ud", "5", NULL};
+static const char *mutevol[] = {"pamixer", "-t", NULL};
+static const char *playpause[] = {"playerctl", "play-pause", NULL};
+static const char *playnext[] = {"playerctl", "next", NULL};
+static const char *playprev[] = {"playerctl", "previous", NULL};
+static const char *brightup[] = {"xbacklight", "-inc", "25%", NULL};
+static const char *brightdown[] = {"xbacklight", "-dec", "25%", NULL};
+static const char *lockscreen[] = {"betterlockscreen", "-l", "blur", NULL};
+
 static const Key keys[] = { /* modifier                     key                       function        argument */
 	{ LAUNCHKEY,                    XK_p,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,                     spawn,          {.v = dmenudruncmd } },
 	{ MODKEY,                       XK_p,                     spawn,          SHCMD("rofi -show drun") },
-	{ MODKEY,                       XK_Return,                spawn,          {.v = termcmd } },
-	{ LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("alacritty msg create-window --class=scratchpad") },
+	//{ MODKEY,                       XK_Return,                spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return,                spawn,          SHCMD("alacritty msg create-window || alacritty") },
+	{ LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("alacritty msg create-window --class=scratchpad || alacritty --class=scratchpad") },
 	{ LAUNCHKEY,                    XK_1,                     spawn,          SHCMD("st -g 175x25 -c scratchpad") },
   { LAUNCHKEY,                    XK_2,                     spawn,          SHCMD("thunar") },
 	{ LAUNCHKEY,                    XK_3,                     spawn,          SHCMD("firefox") },
 	{ LAUNCHKEY,                    XK_4,                     spawn,          SHCMD("zathura") },
-	{ LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("alacritty msg create-window --class eva -t 'eva | Calculator' -e eva -f 64") },
-	{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("alacritty msg create-window --class btop -t BTOP++ -e btop") },
-	{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("alacritty msg create-window --class btm -t Bottom -e btm") },
-	{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("alacritty msg create-window --class ncmpcpp -t NCMPCPP -e ncmpcpp") },
+	{ LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("alacritty msg create-window --class eva -t 'eva | Calculator' -e eva -f 64 || alacritty --class eva -t 'eva | Calculator' -e eva -f 64") },
+	{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("alacritty msg create-window --class btop -t BTOP++ -e btop || alacritty --class btop -t BTOP++ -e btop") },
+	{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("alacritty msg create-window --class btm -t Bottom -e btm || alacritty --class btm -t Bottom -e btm") },
+	{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("alacritty msg create-window --class ncmpcpp -t NCMPCPP -e ncmpcpp || alacritty --class ncmpcpp -t NCMPCPP -e ncmpcpp") },
 	{ LAUNCHKEY,                    XK_9,                     spawn,          SHCMD("alacritty && notify-send 'Alacritty socket created.'") },
 	{ MODKEY,                       XK_b,                     togglebar,      {0} },
 	{ MODKEY,                       XK_b,                     toggleextrabar, {0} },

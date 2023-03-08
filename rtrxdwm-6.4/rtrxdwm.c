@@ -90,7 +90,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeUrg, SchemeTitle }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeUrg, SchemeTitle, SchemeTab }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMIcon, NetWMState, NetWMCheck,
 	   NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
@@ -824,7 +824,7 @@ clientmessage(XEvent *e)
         seturgent(c, 1);
       } else if (c->tags & c->mon->tagset[c->mon->seltags]) {
           focus(c);
-          warp(c);
+          //warp(c);
       } else {
 		      for (i = 0; i < LENGTH(tags) && !((1 << i) & c->tags); i++);
 		      if (i < LENGTH(tags)) {
@@ -2789,12 +2789,12 @@ drawTab(int nwins, int first, Monitor *m)
 		/* if (HIDDEN(c)) continue; uncomment if you're using awesomebar patch */
 
 		n++;
-		drw_setscheme(drw, scheme[(c == m->sel) ? SchemeSel : SchemeNorm]);
+		drw_setscheme(drw, scheme[(c == m->sel) ? SchemeSel : SchemeTab]);
 		drw_text(drw, 0, y, selmon->maxWTab, h, 0, c->name, 0);
 		y += h;
 	}
 
-	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_setscheme(drw, scheme[SchemeTab]);
 	drw_map(drw, m->tabwin, 0, 0, selmon->maxWTab, selmon->maxHTab);
 }
 
