@@ -1948,15 +1948,16 @@ void
 resizeclient(Client *c, int x, int y, int w, int h)
 {
 	XWindowChanges wc;
+	/* //Uncomment for No Borders when monocle
 	unsigned int n;
-	Client *nbc;
+	Client *nbc;*/
 
 	c->oldx = c->x; c->x = wc.x = x;
 	c->oldy = c->y; c->y = wc.y = y;
 	c->oldw = c->w; c->w = wc.width = w;
 	c->oldh = c->h; c->h = wc.height = h;
 	wc.border_width = c->bw;
-	   
+	/* // Uncomment for No Borders when monocle   
 	for (n = 0, nbc = nexttiled(c->mon->clients); nbc; nbc = nexttiled(nbc->next), n++);
 
 	if (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL) {
@@ -1967,7 +1968,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
 			c->h = wc.height += c->bw * 2;
 		}
 	}
-
+*/
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
 	XSync(dpy, False);
@@ -2620,12 +2621,20 @@ sigterm(int unused)
 void
 spawn(const Arg *arg)
 {
+	struct sigaction sa;
+	
 	if (arg->v == dmenucmd)
 		dmenumon[0] = '0' + selmon->num;
 	if (fork() == 0) {
 		if (dpy)
 			close(ConnectionNumber(dpy));
 		setsid();
+
+		sigemptyset(&sa.sa_mask);
+		sa.sa_flags = 0;
+		sa.sa_handler = SIG_DFL;
+		sigaction(SIGCHLD, &sa, NULL);
+		
 		execvp(((char **)arg->v)[0], (char **)arg->v);
 		die("RTRXdwm: execvp '%s' failed:", ((char **)arg->v)[0]);
 	}

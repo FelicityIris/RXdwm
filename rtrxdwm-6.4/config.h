@@ -10,7 +10,7 @@ static const unsigned int maxHTab 			= 100;	/* tab menu height */
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
-static unsigned int gappx     = 0;        /* gaps between windows */
+static unsigned int gappx     = 5;        /* gaps between windows */
 static unsigned int snap      = 15;       /* snap pixel */
 static int scalepreview       = 5;        /* tag preview scaling */
 static unsigned int systraypinning  = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -30,16 +30,19 @@ static char font[]            = "Iosevka Nerd Font:size=11";
 static char dmenufont[]       = "Iosevka Nerd Font:size=11";
 static const char *fonts[]    = { font };
 
-static char normfgcolor[]     = "#a0a0ff";
-static char normbgcolor[]     = "#11111b";
+static char normfgcolor[]     = "#b4befe";
+//static char normbgcolor[]     = "#11111b";
+static char normbgcolor[]     = "#11112c";
+static char normbordercolor[] = "#45476b";
 //static char selbordercolor[]  = "#585ba0";
-static char selbordercolor[]  = "#a6e3a1";
+//static char selbordercolor[]  = "#a6e3a1";
+static char selbordercolor[]  = "#89b4fa";
 static char selfgcolor[]      = "#a6e3a1";
 
 static char urgentcolor[]     = "#f38ba8";
 static char *colors[][3]      = {
 	/*                  fg           bg            border   */
-	[SchemeNorm]    = { normfgcolor, normbgcolor,  normbgcolor },
+	[SchemeNorm]    = { normfgcolor, normbgcolor,  normbordercolor },
 	[SchemeSel]     = { selfgcolor,  normbgcolor,  selbordercolor },
 	[SchemeUrg]     = { urgentcolor, normbgcolor,  urgentcolor },
   [SchemeTitle]   = { selfgcolor,  normbgcolor,  normbgcolor },
