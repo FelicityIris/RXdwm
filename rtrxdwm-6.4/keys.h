@@ -1,7 +1,9 @@
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", normbgcolor, "-sf", selfgcolor, NULL };
-static const char *dmenudruncmd[] = { "j4dmrun", NULL};
+//static const char *dmenudruncmd[] = { "j4dmrun", NULL};
+static const char *dmenudruncmd[] = { "xfce4-appfinder", "--disable-server", NULL};
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+
 
 //static const char *termcmd[]  = { "alacritty", "msg", "create-window", NULL };
 static const char *termcmd[]  = { "alacritty", "msg", "create-window", "||", "alacritty", NULL };
@@ -22,24 +24,24 @@ static const Key keys[] = { /* modifier                     key                 
 	{ MODKEY|ShiftMask,             XK_d,                     spawn,          {.v = dmenudruncmd } },
 	{ MODKEY,                       XK_d,                     spawn,          SHCMD("rofi -show drun") },
 	//{ MODKEY,                       XK_Return,                spawn,          {.v = termcmd } },
-	//{ MODKEY,                       XK_Return,                spawn,          SHCMD("alacritty msg create-window || alacritty") },
-	//{ LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("alacritty msg create-window --class=scratchpad || alacritty --class=scratchpad") },
-	//{ LAUNCHKEY,                    XK_1,                     spawn,          SHCMD("st -g 175x25 -c scratchpad") },
-	{ MODKEY,                       XK_Return,                spawn,          SHCMD("st") },
-	{ LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("st -g 175x25 -c scratchpad") },
-	{ LAUNCHKEY,                    XK_1,                     spawn,          SHCMD("alacritty msg create-window --class=scratchpad || alacritty --class=scratchpad") },
+	{ MODKEY,                       XK_Return,                spawn,          SHCMD("alacritty msg create-window || alacritty") },
+	{ LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("alacritty msg create-window --class=scratchpad || alacritty --class=scratchpad") },
+	{ LAUNCHKEY,                    XK_1,                     spawn,          SHCMD("st -g 175x25 -c scratchpad") },
+	// { MODKEY,                       XK_Return,                spawn,          SHCMD("st") },
+	// { LAUNCHKEY,                    XK_Return,                spawn,          SHCMD("st -g 175x25 -c scratchpad") },
+	// { LAUNCHKEY,                    XK_1,                     spawn,          SHCMD("alacritty msg create-window --class=scratchpad || alacritty --class=scratchpad") },
   { LAUNCHKEY,                    XK_2,                     spawn,          SHCMD("dolphin") },
 	//{ LAUNCHKEY,                    XK_3,                     spawn,          SHCMD("firefox") },
 	{ LAUNCHKEY,                    XK_3,                     spawn,          SHCMD("brave") },
 	{ LAUNCHKEY,                    XK_4,                     spawn,          SHCMD("zathura") },
-	//{ LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("alacritty msg create-window --class eva -t 'eva | Calculator' -e eva -f 64 || alacritty --class eva -t 'eva | Calculator' -e eva -f 64") },
-	//{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("alacritty msg create-window --class btop -t BTOP++ -e btop || alacritty --class btop -t BTOP++ -e btop") },
-	//{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("alacritty msg create-window --class btm -t Bottom -e btm || alacritty --class btm -t Bottom -e btm") },
-	//{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("alacritty msg create-window --class ncmpcpp -t NCMPCPP -e ncmpcpp || alacritty --class ncmpcpp -t NCMPCPP -e ncmpcpp") },
-	{ LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("st -g 175x25 -c eva -t 'eva | Calculator' -e eva -f 64") },
-	{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("st -g 175x25 -c btop -t BTOP++ -e btop") },
-	{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("st -g 175x25 -c btm -t Bottom -e btm") },
-	{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("st -g 175x25 -c ncmpcpp -t NCMPCPP -e ncmpcpp") },
+	{ LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("alacritty msg create-window --class eva -t 'eva | Calculator' -e eva -f 64 || alacritty --class eva -t 'eva | Calculator' -e eva -f 64") },
+	{ LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("alacritty msg create-window --class btop -t BTOP++ -e btop || alacritty --class btop -t BTOP++ -e btop") },
+	{ LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("alacritty msg create-window --class btm -t Bottom -e btm || alacritty --class btm -t Bottom -e btm") },
+	{ LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("alacritty msg create-window --class ncmpcpp -t NCMPCPP -e ncmpcpp || alacritty --class ncmpcpp -t NCMPCPP -e ncmpcpp") },
+	// { LAUNCHKEY,                    XK_5,                     spawn,          SHCMD("st -g 175x25 -c eva -t 'eva | Calculator' -e eva -f 64") },
+	// { LAUNCHKEY,                    XK_6,                     spawn,          SHCMD("st -g 175x25 -c btop -t BTOP++ -e btop") },
+	// { LAUNCHKEY,                    XK_7,                     spawn,          SHCMD("st -g 175x25 -c btm -t Bottom -e btm") },
+	// { LAUNCHKEY,                    XK_8,                     spawn,          SHCMD("st -g 175x25 -c ncmpcpp -t NCMPCPP -e ncmpcpp") },
 	{ LAUNCHKEY,                    XK_9,                     spawn,          SHCMD("alacritty && notify-send 'Alacritty socket created.'") },
 	{ LAUNCHKEY,                    XK_r,                     spawn,          SHCMD("qalculate-qt") },
 	{ MODKEY,                       XK_b,                     togglebar,      {0} },

@@ -5,6 +5,7 @@ static const Rule rules[] = {
 	 */
 	/* class                                                  instance    title                   tags mask     iscentered     isfloating     monitor */
 	{ "Gimp",                                                 NULL,       NULL,                   0,            1,             1,             -1 },
+	{ "Xfce4-appfinder",                                      NULL,       NULL,                   0,            1,             1,             -1 },
 	{ "librewolf",                                            NULL,       NULL,                   0,            1,             0,             -1 },
 	{ "librewolf",                                            "Devtools", NULL,                   0,            1,             1,             -1 },
 	{ "librewolf",                                            "Browser",  NULL,                   0,            1,             1,             -1 },
