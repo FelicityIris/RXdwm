@@ -1,32 +1,35 @@
 # Personal-RTRXdwm-And-Desktop-Build
 
+This Project has been Archived. Please refer the Newer Super Repository for the Desktop Configuration and Theming Files
+
+- Contacts
+- - Matrix: `@r.t.redreovic:envs.net`
+- - Email: [r.t.redreovich.public.fnto7@8shield.net](mailto:r.t.redreovich.public.fnto7@8shield.net)
+
 ![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Core/rtrxdwmcore.png?raw=true)
 
-This Repository contains my RTRXdwm build along with related Desktop Files.
+This Repository contains the files and configurations related to RTRXdwm.
 
-RTRXdwm - RT Redreovič's X dynamic window manager is a custom build of dwm. It contains tons of patches which you may require in a dynamic window manager. With some changes, you can easily use this.
+RTRXdwm - RT Redreovič's X dynamic window manager is a custom build of dwm. It contains several patches one may require in a dynamic window manager. With marginal changes, one can easily use this portably.
 
-Why did I rename it? It is pretty much a whole package you would need, and if supplemented with my configuration, really you have an entire Desktop Suite. Plus the Name looked cooler. B)
+Why was the Window Manager renamed? It is a whole package one would need to set up a functional X Display Server as well as a couple more features.
 
-# Things to do
+# Things that could have be done
 
-- Fix layoutmenu (currently the layout pops up but the indexing is broken and if you click on any layout, it simply doesn't run, though you can probably just use the hotkeys or layout cycle, do you even need this? might as well use the menu for something else...)
+- Fix layoutmenu
+- - Currently the layout pops up but the indexing is broken and if one clicks on any layout, it simply doesn't run, though one can probably just use the hotkeys or layout cycle.
 
-# Custom Kernel
+- Fix Menu Bug in Electron Apps.
 
-For installing my custom kernel (Linux6.0-Xanmod Stable)
-
-- [Build it yourself](https://notabug.org/Marcoapc/voidxanmodK)
-
-- [Download my binaries for Linux6.0-Xanmod Stable and Headers](https://github.com/Red1922/Linux-Xanmod-Binaries-For-Void-Users)
+- Fix Focus Ghosting in Applications after switching tags.
 
 # Attention
 
-Before Compiling, remember to check the \*.h files for personalized issues. As this build was created solely to suit my own needs and in accordance to my system. Addresses and Program Commands may not resonate with your system.
+Before Compiling, remember to check the \*.h files for personalized issues.
 
-- Please note that only the patches inside the rtrxdwm-6.4/Patched folder are the ones that have been patched into my built. Any .diff or .patch in the build folder are just there for future patching and are currently in the process of being patched in. If you have already patched it or know how to patch it correctly without issues, do notify me.
+- Please note that only the patches inside the rtrxdwm-6.4/Patched/ directory are the ones that have been patched into the build. Any .diff or .patch in the rtrxdwm-6.4/Unpatched/ directory were removed at an earlier date for any reason.
 
-# Desktop Previews
+# Desktop Previews (Outdated)
 
 ![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Screenshots/Term.png?raw=true)
 
@@ -37,52 +40,36 @@ Before Compiling, remember to check the \*.h files for personalized issues. As t
 ![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Screenshots/Conky.png?raw=true)
 
 
-Workflow (Old)
-
-https://imgur.com/uF0KU10
-
-# Wallpaper
+# Wallpaper (Outdated)
 
 ![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Wallpapers/SWARM-1920x1080.png?raw=true)
 
-Refer my [main wallpaper repo](https://github.com/Red1922/Wallpapers) for more wallpapers.
+Refer the [main wallpaper repo](https://github.com/Red1922/Wallpapers) for more wallpapers.
 
 # SLSTATUS
 
 [Here](https://github.com/Red1922/slstatus)
 
-# ST Build
+# ST Build (No Longer in Usage)
 [Here](https://github.com/Red1922/Personal-ST-build)
 
 # Other Information
 
-- I used [Void Base iso](https://voidlinux.org/download/) (GLIBC Live Image) for installation. (Previous setup used Artix Base Iso)
+- The [Void Linux Base iso](https://voidlinux.org/download/) (GLIBC Live Image) was used for installation.
 
-- Terminal: st; "[neofetch](https://github.com/dylanaraps/neofetch) | [lolcat](https://github.com/busyloop/lolcat)" to get rainbow coloured neofetch. (I do not use Alacritty any longer. Dot file is deprecated for this setup.)
+- Terminal: Alacritty; "[neofetch](https://github.com/dylanaraps/neofetch) | [lolcat](https://github.com/busyloop/lolcat)" to get rainbow coloured neofetch.
 
-- Shell: [ZSH](https://www.zsh.org/) (Some of my dotfiles and scripts may have `#!/bin/zsh` as the shebang, so replace it with `#!/bin/sh` or `#!/bin/bash` to make them work in case it doesn't.)
-- ZSH Plugins: [ZSH-Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions); [Fast-Syntax-Highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) via [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- Shell: [ZSH](https://www.zsh.org/)
 
-Steps to switch shell (for convenience)
-```
-sudo -s
-
-chsh -s /bin/zsh root
-
-exit
-
-chsh -s /bin/zsh username
-```
-
-- NeoVim Theme: [NvChad](https://nvchad.com/)
+- NeoVim Theme: [NvChad](https://nvchad.com/) (No Longer in Usage. Replaced by Helix Editor)
 
 - Emacs Theme: [DOOM Emacs](https://github.com/doomemacs/doomemacs)
 
-- Icon Theme: [BeautyLine Icons](https://store.kde.org/p/1425426/) | [Candy Icons](https://github.com/EliverLara/candy-icons) (Former)
+- Icon Theme: Papirus Icons
 
-- Mouse Cursor Theme: [LyraB Cursors](https://store.kde.org/p/1524406) | [Nordzy Cursors](https://github.com/alvatip/Nordzy-cursors (Former)
+- Mouse Cursor Theme: [Nordzy Cursors](https://github.com/alvatip/Nordzy-cursors
 
-- GTK Theme: [ABYSS INK](https://www.pling.com/p/1324963)
+- GTK Theme: Catppuccin Altar
 
 - GTK Appearance configured using [lxappearance](https://github.com/lxde/lxappearance).
 
@@ -90,43 +77,25 @@ chsh -s /bin/zsh username
 
 - After installing qt5ct and qt5-styleplugins and configuring it, please add `QT_QPA_PLATFORMTHEME=qt5ct` to /etc/environment and restart your system for making qt apps respect your theming.
 
-- File Manager: [Thunar](https://gitlab.xfce.org/xfce/thunar); Plugins and Utilities: thunar-archive-plugin, xarchiver, file-roller & tumblerd, I use a patched version of Thunar, refer [Thunar-extended](https://aur.archlinux.org/packages/thunar-extended) on the Arch User Repository. I also have Nemo because I botched the patch. :)
+- File Manager: None
 
-- Code & Text Editor: [Neovim](https://github.com/neovim/neovim) (Terminal).
+- Code & Text Editor: Helix (Terminal).
 
-- IDE: [VSCodium](https://github.com/VSCodium/vscodium) (Frankly I haven't opened Codium in a long time, Neovim4Life)
+- IDE: Helix, [VSCodium](https://github.com/VSCodium/vscodium) (for when the need arises)
 
 - Audio Visualizer: [CAVA](https://github.com/karlstav/cava)
 
-- Music Player: MPD (Tip, use [mpd-rich-presence-discord](https://github.com/justas-d/mpd-rich-presence-discord) to get MPD as status on Discord.)
+- Music Player: MPD (Client: NCMPCPP)
 
-- I use [Pipewire](https://pipewire.org/) (additionally [pipewire-pulse](https://docs.pipewire.org/page_man_pipewire_pulse_1.html) to run Pulseaudio programs, [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) for Profile and Device Management and related packages + lib32 packages). (Please ommit my configuration if you do not have 7.1 Surround Sound Supporting Headphones. The Void Linux Pipewire template pre configures it systemwide so you just need to run it and it works OotB)
+- Screenshot utilities used: [Scrot](https://github.com/dreamer/scrot) + [Xclip](https://github.com/astrand/xclip) (Lightweight and instant screenshots) and [Flameshot](https://flameshot.org/) (For in case the Screenshots need to be edited).
 
-- Screenshot utilities used: [Scrot](https://github.com/dreamer/scrot) + [Xclip](https://github.com/astrand/xclip) (Lightweight and instant screenshots) and [Flameshot](https://flameshot.org/) (For in case I need to make edits to the Screenshot). (Scripts are included.)
+- [Good Guide on Void Linux Optimization.](https://gist.github.com/themagicalmammal/e443d3c5440d566f8206e5b957ab1493)
 
-- I am using [network-manager-applet](https://gitlab.gnome.org/GNOME/network-manager-applet) (`nmcli` / `nmtui` (terminal)).
-
-Starting Services in Runit by symlinking:
-```
-sudo ln -s /etc/runit/sv/<service-name> /run/runit/service/
-```
-
-- I use [rEFInd](https://www.rodsbooks.com/refind/).
-
-- Refer [This Article](https://deepu.tech/rust-terminal-tools-linux-mac-windows-fish-zsh/) for tools I have Switched over to. Aliases are present in my .zshrc.
-
-- For issues please DM me on revolt.chat ---> `@R.T.Redreovič`
-- or Discord ---> `@R.T.Redreovič#6804`
-
-- [A good guide for Artix Linux users.](https://gist.github.com/themagicalmammal/37276c97897d40598e975f5e563252a6)
-
-- [And for Void Linux users.](https://gist.github.com/themagicalmammal/e443d3c5440d566f8206e5b957ab1493)
-
-- Some of these packages were available on AUR when I used Artix, on void, you might have to use xbps-src or compile from source.
+- [Decent Rust Replacements for GNU Coreutil Prorams.](https://deepu.tech/rust-terminal-tools-linux-mac-windows-fish-zsh/)
 
 # Special Thanks to
 
-- EFLinux for a great [Artix Linux/Runit installation video guide.](https://www.youtube.com/watch?v=mIpZA6z-Ctk)
+- EFLinux for a great [Artix Linux (Runit) installation video guide.](https://www.youtube.com/watch?v=mIpZA6z-Ctk)
 
 - Endeavour OS/BSPWM Community Edition for their [dotfiles.](https://github.com/EndeavourOS-Community-Editions/bspwm)
 
