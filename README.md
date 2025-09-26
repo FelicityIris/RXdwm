@@ -1,20 +1,10 @@
-# Personal-RTRXdwm-And-Desktop-Build
+# RXdwm
 
-This Project has been Archived. Please refer the Newer Super Repository for the Desktop Configuration and Theming Files
+This Repository contains the files and configurations related to RXdwm.
 
-- Contacts
-- - Matrix: `@r.t.redreovic:envs.net`
-- - Email: [r.t.redreovich.public.fnto7@8shield.net](mailto:r.t.redreovich.public.fnto7@8shield.net)
+RXdwm is a forked dynamic window manager based on [dwm](https://dwm.suckless.org/). It contains several patches one may require in a dynamic window manager. With marginal changes, one can easily use this portably.
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Core/rtrxdwmcore.png?raw=true)
-
-This Repository contains the files and configurations related to RTRXdwm.
-
-RTRXdwm - RT Redreovič's X dynamic window manager is a custom build of dwm. It contains several patches one may require in a dynamic window manager. With marginal changes, one can easily use this portably.
-
-Why was the Window Manager renamed? It is a whole package one would need to set up a functional X Display Server as well as a couple more features.
-
-# Things that could have be done
+# Things that can be done
 
 - Fix layoutmenu
 - - Currently the layout pops up but the indexing is broken and if one clicks on any layout, it simply doesn't run, though one can probably just use the hotkeys or layout cycle.
@@ -27,31 +17,24 @@ Why was the Window Manager renamed? It is a whole package one would need to set 
 
 Before Compiling, remember to check the \*.h files for personalized issues.
 
-- Please note that only the patches inside the rtrxdwm-6.4/Patched/ directory are the ones that have been patched into the build. Any .diff or .patch in the rtrxdwm-6.4/Unpatched/ directory were removed at an earlier date for any reason.
+- Please note that only the patches inside the rxdwm-6.4/Patched/ directory are the ones that have been patched into the build. Any .diff or .patch in the rxdwm-6.4/Unpatched/ directory were removed at an earlier date for any reason.
 
 # Desktop Previews (Outdated)
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdWM-And-Desktop-Build/blob/main/Media/Screenshots/Term.png?raw=true)
+![RXdwm](https://github.com/FelicityIris/RXdWM/blob/main/Media/Screenshots/Term.png?raw=true)
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Screenshots/TermWPicom.png?raw=true)
+![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/TermWPicom.png?raw=true)
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Screenshots/Preview.png?raw=true)
+![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/Preview.png?raw=true)
 
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Screenshots/Conky.png?raw=true)
-
-
-# Wallpaper (Outdated)
-
-![Personal-RTRXdwm-And-Desktop-Build](https://github.com/Red1922/Personal-RTRXdwm-And-Desktop-Build/blob/main/Media/Wallpapers/SWARM-1920x1080.png?raw=true)
-
-Refer the [main wallpaper repo](https://github.com/Red1922/Wallpapers) for more wallpapers.
+![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/Conky.png?raw=true)
 
 # SLSTATUS
 
-[Here](https://github.com/Red1922/slstatus)
+[Here](https://github.com/FelicityIris/slstatus)
 
 # ST Build (No Longer in Usage)
-[Here](https://github.com/Red1922/Personal-ST-build)
+[Here](https://github.com/FelicityIris/Personal-ST-build)
 
 # Other Information
 
