@@ -21,13 +21,7 @@ Before Compiling, remember to check the \*.h files for personalized issues.
 
 # Desktop Previews (Outdated)
 
-![RXdwm](https://github.com/FelicityIris/RXdWM/blob/main/Media/Screenshots/Term.png?raw=true)
-
 ![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/TermWPicom.png?raw=true)
-
-![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/Preview.png?raw=true)
-
-![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/Conky.png?raw=true)
 
 # SLSTATUS
 
