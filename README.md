@@ -19,7 +19,7 @@ Before Compiling, remember to check the \*.h files for personalized issues.
 
 - Please note that only the patches inside the rxdwm-6.4/Patched/ directory are the ones that have been patched into the build. Any .diff or .patch in the rxdwm-6.4/Unpatched/ directory were removed at an earlier date for any reason.
 
-# Desktop Previews (Outdated)
+# Desktop Previews
 
 ![RXdwm](https://github.com/FelicityIris/RXdwm/blob/main/Media/Screenshots/TermWPicom.png?raw=true)
 
