@@ -25,10 +25,11 @@ Before Compiling, remember to check the \*.h files for personalized issues.
 
 # SLSTATUS
 
-[Here](https://github.com/FelicityIris/slstatus)
+For status messages on bars. Access source [here](https://github.com/FelicityIris/slstatus).
 
-# ST Build (No Longer in Usage)
-[Here](https://github.com/FelicityIris/Personal-ST-build)
+# ST (Simple Terminal)
+
+My fork of [ST](https://st.suckless.org/). Access source [here](https://github.com/FelicityIris/Personal-ST-build).
 
 # Other Information
 
